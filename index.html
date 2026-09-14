@@ -10,15 +10,13 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; }
 body { background-color: #f8f5ef; color: #2c1810; line-height: 1.7; }
 
-/* الترويسة الرئيسية */
 header {
     background: linear-gradient(rgba(44, 24, 16, 0.75), rgba(93, 46, 12, 0.85)), 
-                url('https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1600') center/cover;
+                url('photo1.jpg') center/cover;
     color: white;
     padding: 100px 20px 80px;
     text-align: center;
     border-bottom: 6px solid #FFD700;
-    position: relative;
 }
 header h1 { font-size: 3em; margin-bottom: 15px; text-shadow: 3px 3px 8px rgba(0,0,0,0.7); letter-spacing: 2px; }
 header p { font-size: 1.3em; opacity: 0.95; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
@@ -31,11 +29,9 @@ header .engineer-credit {
     border-radius: 50px;
     font-size: 1.05em;
     color: #FFD700;
-    backdrop-filter: blur(10px);
     font-weight: bold;
 }
 
-/* شريط التنقل */
 nav {
     background-color: #2c1810;
     padding: 0;
@@ -54,10 +50,8 @@ nav a {
     font-size: 1.15em;
     font-weight: bold;
     transition: all 0.3s;
-    position: relative;
 }
 nav a:hover { background-color: #5D2E0C; color: white; }
-nav a:hover::after { content: ''; position: absolute; bottom: 0; left: 20%; right: 20%; height: 3px; background: #FFD700; }
 nav .nav-brand {
     color: white;
     font-weight: bold;
@@ -67,7 +61,6 @@ nav .nav-brand {
     border-right: 1px solid #5D2E0C;
 }
 
-/* الحاويات */
 .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
 .section-title {
     text-align: center;
@@ -95,7 +88,6 @@ nav .nav-brand {
     margin: 0 auto 40px;
 }
 
-/* شريط اسم المهندس تحت كل قسم */
 .engineer-bar {
     text-align: center;
     padding: 15px;
@@ -109,7 +101,6 @@ nav .nav-brand {
 }
 .engineer-bar span { color: #D2691E; font-size: 1.1em; }
 
-/* شبكة الصور */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -124,13 +115,12 @@ nav .nav-brand {
     border: 1px solid #e8e0d0;
 }
 .card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(139, 69, 19, 0.25); }
-.card img { width: 100%; height: 240px; object-fit: cover; transition: transform 0.4s; }
+.card img { width: 100%; height: 300px; object-fit: cover; transition: transform 0.4s; }
 .card:hover img { transform: scale(1.08); }
 .card-body { padding: 20px; }
 .card-body h3 { color: #8B4513; margin-bottom: 10px; font-size: 1.2em; }
 .card-body p { color: #666; font-size: 0.95em; }
 
-/* الفيديو */
 .video-card {
     background: white;
     border-radius: 15px;
@@ -149,11 +139,9 @@ nav .nav-brand {
     color: #FFD700;
     font-size: 4em;
     cursor: pointer;
-    transition: all 0.3s;
 }
 .video-placeholder:hover { background: linear-gradient(135deg, #5D2E0C, #D2691E); }
 
-/* الأخبار */
 .news-item {
     background: white;
     padding: 25px;
@@ -168,7 +156,6 @@ nav .nav-brand {
 .news-item .date { color: #D2691E; font-size: 0.9em; font-weight: bold; display: block; margin-bottom: 8px; }
 .news-item p { color: #555; }
 
-/* التذييل */
 footer {
     background: linear-gradient(135deg, #1a0f08, #2c1810);
     color: #FFD700;
@@ -177,11 +164,7 @@ footer {
     margin-top: 60px;
     border-top: 5px solid #D2691E;
 }
-footer .footer-brand {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    color: #FFD700;
-}
+footer .footer-brand { font-size: 1.8em; margin-bottom: 15px; color: #FFD700; }
 footer .footer-engineer {
     font-size: 1.15em;
     color: white;
@@ -196,11 +179,9 @@ footer .footer-engineer {
 footer .footer-engineer strong { color: #FFD700; }
 footer .contact-line { margin: 8px 0; font-size: 1em; }
 footer .contact-line a { color: #FFD700; text-decoration: none; font-weight: bold; }
-footer .contact-line a:hover { text-decoration: underline; }
 footer .copyright { font-size: 0.9em; opacity: 0.7; margin-top: 20px; }
 footer .heart { color: #e74c3c; }
 
-/* زر واتساب عائم */
 .whatsapp-float {
     position: fixed;
     bottom: 25px;
@@ -221,7 +202,6 @@ footer .heart { color: #e74c3c; }
 }
 .whatsapp-float:hover { transform: scale(1.15); }
 
-/* للجوال */
 @media (max-width: 768px) {
     header h1 { font-size: 2em; }
     nav a { padding: 15px 12px; font-size: 0.95em; }
@@ -265,45 +245,31 @@ footer .heart { color: #e74c3c; }
     <div class="section-divider"></div>
     <div class="gallery">
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600&q=80" alt="جبال اليمن">
+            <img src="photo1.jpg" alt="مناظر من بلاد الصدارة">
             <div class="card-body">
-                <h3>جبال اليمن الشامخة</h3>
-                <p>مناظر خلابة من جبال اليمن السعيد، حيث الطبيعة تلتقي بالتاريخ.</p>
+                <h3>مناظر من بلاد الصدارة</h3>
+                <p>صورة توثق جمال الطبيعة والمعمار في بلاد الصدارة التاريخية.</p>
             </div>
         </div>
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1578895101408-1a36b834405b?w=600&q=80" alt="معمار يمني">
+            <img src="photo2.jpg" alt="تراث وأصالة">
             <div class="card-body">
-                <h3>المعمار اليمني الأصيل</h3>
-                <p>بيوت صنعاء القديمة بنقوشها الفريدة وألوانها التراثية.</p>
+                <h3>تراث وأصالة</h3>
+                <p>لمحة من عبق التاريخ وأصالة المكان في بلاد الصدارة.</p>
             </div>
         </div>
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=600&q=80" alt="طبيعة اليمن">
+            <img src="photo3.jpg" alt="جمال الطبيعة">
             <div class="card-body">
-                <h3>طبيعة خلابة</h3>
-                <p>خضرة اليمن وجمال أراضيه الزراعية في مواسم الأمطار.</p>
+                <h3>جمال الطبيعة</h3>
+                <p>مناظر خلابة تجسد سحر الطبيعة في ربوع بلاد الصدارة.</p>
             </div>
         </div>
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?w=600&q=80" alt="سواحل اليمن">
-            <div class="card-body">
-                <h3>سواحل اليمن</h3>
-                <p>شواطئ بحر العرب والبحر الأحمر بجمالها الساحر.</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80" alt="تاريخ اليمن">
+            <img src="photo4.jpg" alt="معالم تاريخية">
             <div class="card-body">
                 <h3>معالم تاريخية</h3>
-                <p>آثار وممالك يمنية قديمة تحكي قصة حضارة عريقة.</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1600013062013-4b4b3e7b8f4a?w=600&q=80" alt="اليمن السعيد">
-            <div class="card-body">
-                <h3>اليمن السعيد</h3>
-                <p>لوحات طبيعية تجسد جمال اليمن في كل الفصول.</p>
+                <p>آثار ومعالم تحكي قصة حضارة عريقة في بلاد الصدارة التاريخية.</p>
             </div>
         </div>
     </div>
@@ -320,15 +286,8 @@ footer .heart { color: #e74c3c; }
     <div class="video-card">
         <div class="video-placeholder">▶</div>
         <div style="padding:25px;">
-            <h3 style="color:#8B4513; margin-bottom:10px;">جولة في جبال اليمن</h3>
-            <p style="color:#666;">استمتع بمشاهدة أجمل المشاهد الطبيعية من جبال اليمن السعيد.</p>
-        </div>
-    </div>
-    <div class="video-card">
-        <div class="video-placeholder">▶</div>
-        <div style="padding:25px;">
-            <h3 style="color:#8B4513; margin-bottom:10px;">صنعاء القديمة</h3>
-            <p style="color:#666;">رحلة في أزقة صنعاء التاريخية ومعمارها الفريد.</p>
+            <h3 style="color:#8B4513; margin-bottom:10px;">جولة في بلاد الصدارة</h3>
+            <p style="color:#666;">استمتع بمشاهدة أجمل المشاهد من بلاد الصدارة التاريخية.</p>
         </div>
     </div>
 </div>
@@ -351,11 +310,6 @@ footer .heart { color: #e74c3c; }
         <h3>جهود للحفاظ على التراث اليمني</h3>
         <p>مبادرات جديدة تهدف إلى توثيق وحماية المعالم التاريخية في مختلف المحافظات اليمنية.</p>
     </div>
-    <div class="news-item">
-        <span class="date">📅 هذا الأسبوع</span>
-        <h3>اليمن السعيد وجهة سياحية مميزة</h3>
-        <p>تشهد المناطق الطبيعية في اليمن اهتماماً متزايداً من السياح الباحثين عن الجمال الأصيل.</p>
-    </div>
 </div>
 
 <footer>
@@ -374,7 +328,6 @@ footer .heart { color: #e74c3c; }
     <p class="copyright">صُنع بـ <span class="heart">❤️</span> للحفاظ على التاريخ والجمال</p>
 </footer>
 
-<!-- زر واتساب عائم -->
 <a href="https://wa.me/967782953692" class="whatsapp-float" target="_blank" title="تواصل عبر واتساب">💬</a>
 
 </body>
