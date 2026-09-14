@@ -5,10 +5,57 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="المهندس صلووح المانعي">
 <meta name="description" content="موقع بلاد الصدارة التاريخية - صور ومقاطع وأخبار من قلب اليمن السعيد. صنع بواسطة المهندس صلووح المانعي للشبكات والمواقع. للتواصل: 782953692">
+<meta name="theme-color" content="#8B4513">
 <title>بلاد الصدارة التاريخية | المهندس صلووح المانعي</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; }
-body { background-color: #f8f5ef; color: #2c1810; line-height: 1.7; }
+html { scroll-behavior: smooth; }
+body { background-color: #f8f5ef; color: #2c1810; line-height: 1.7; overflow-x: hidden; }
+
+/* شاشة التحميل */
+.loader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #2c1810;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.6s, visibility 0.6s;
+}
+.loader.hidden { opacity: 0; visibility: hidden; }
+.loader-content {
+    text-align: center;
+    color: #FFD700;
+}
+.loader-icon {
+    font-size: 4em;
+    animation: spin 2s linear infinite;
+    display: block;
+    margin-bottom: 20px;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.loader-text {
+    font-size: 1.3em;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+/* شريط تقدم القراءة */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #D2691E, #FFD700);
+    width: 0%;
+    z-index: 1000;
+    transition: width 0.1s;
+}
 
 /* الترويسة */
 header {
@@ -18,6 +65,7 @@ header {
     padding: 100px 20px 80px;
     text-align: center;
     border-bottom: 6px solid #FFD700;
+    position: relative;
 }
 header h1 { font-size: 3em; margin-bottom: 15px; text-shadow: 3px 3px 8px rgba(0,0,0,0.7); letter-spacing: 2px; }
 header p { font-size: 1.3em; opacity: 0.95; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
@@ -31,6 +79,7 @@ header .engineer-credit {
     font-size: 1.05em;
     color: #FFD700;
     font-weight: bold;
+    backdrop-filter: blur(10px);
 }
 
 /* شريط التنقل */
@@ -52,8 +101,20 @@ nav a {
     font-size: 1.1em;
     font-weight: bold;
     transition: all 0.3s;
+    position: relative;
+}
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    left: 50%;
+    height: 3px;
+    background: #FFD700;
+    transition: all 0.3s;
 }
 nav a:hover { background-color: #5D2E0C; color: white; }
+nav a:hover::after, nav a.active::after { right: 20%; left: 20%; }
 nav .nav-brand {
     color: white;
     font-weight: bold;
@@ -105,6 +166,17 @@ nav .nav-brand {
 }
 .engineer-bar span { color: #D2691E; font-size: 1.1em; }
 
+/* حركات الدخول */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* معرض الصور */
 .gallery {
     display: grid;
@@ -118,6 +190,7 @@ nav .nav-brand {
     box-shadow: 0 8px 25px rgba(0,0,0,0.12);
     transition: all 0.4s;
     border: 1px solid #e8e0d0;
+    cursor: pointer;
 }
 .card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(139, 69, 19, 0.25); }
 .card img { width: 100%; height: 300px; object-fit: cover; transition: transform 0.4s; }
@@ -125,6 +198,45 @@ nav .nav-brand {
 .card-body { padding: 20px; }
 .card-body h3 { color: #8B4513; margin-bottom: 10px; font-size: 1.2em; }
 .card-body p { color: #666; font-size: 0.95em; }
+
+/* نافذة عرض الصور */
+.lightbox {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 9998;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+}
+.lightbox.active { display: flex; animation: fadeIn 0.3s; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.lightbox img {
+    max-width: 95%;
+    max-height: 90%;
+    border: 5px solid #FFD700;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
+}
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #FFD700;
+    font-size: 3em;
+    cursor: pointer;
+    font-weight: bold;
+    background: rgba(0,0,0,0.5);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 /* قسم الفيديوهات */
 .videos-grid {
@@ -150,12 +262,25 @@ nav .nav-brand {
     height: 200px;
     background: #000;
     overflow: hidden;
+    position: relative;
+}
+.video-frame::before {
+    content: '▶';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 215, 0, 0.5);
+    font-size: 3em;
+    pointer-events: none;
 }
 .video-frame iframe {
     width: 100%;
     height: 100%;
     border: none;
     display: block;
+    position: relative;
+    z-index: 2;
 }
 .video-info {
     padding: 20px;
@@ -212,7 +337,7 @@ nav .nav-brand {
     border: 2px solid transparent;
 }
 .social-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.2); color: white; }
-.social-card .icon { font-size: 3em; margin-bottom: 15px; display: block; }
+.social-card .icon { font-size: 3em; margin-bottom: 15px; display: block; transition: all 0.3s; }
 .social-card .name { font-size: 1.3em; font-weight: bold; margin-bottom: 8px; }
 .social-card .handle { font-size: 0.9em; opacity: 0.7; }
 .social-card.tiktok:hover { background: #000000; border-color: #25F4EE; }
@@ -223,7 +348,7 @@ nav .nav-brand {
 .social-card.youtube .icon { color: #FF0000; }
 .social-card.facebook .icon { color: #1877F2; }
 .social-card.tiktok .icon { color: #000000; }
-.social-card:hover .icon { color: white !important; }
+.social-card:hover .icon { color: white !important; transform: scale(1.2); }
 
 /* الأخبار */
 .news-item {
@@ -285,8 +410,68 @@ footer .heart { color: #e74c3c; }
     z-index: 999;
     text-decoration: none;
     transition: transform 0.3s;
+    animation: pulseGreen 2s infinite;
 }
 .whatsapp-float:hover { transform: scale(1.15); }
+@keyframes pulseGreen {
+    0%, 100% { box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5); }
+    50% { box-shadow: 0 5px 30px rgba(37, 211, 102, 0.9); }
+}
+
+/* زر العودة للأعلى */
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: linear-gradient(135deg, #8B4513, #D2691E);
+    color: #FFD700;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    box-shadow: 0 5px 20px rgba(139, 69, 19, 0.5);
+    z-index: 999;
+    text-decoration: none;
+    transition: all 0.4s;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    border: 2px solid #FFD700;
+    font-weight: bold;
+}
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.back-to-top:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
+}
+
+/* زر المشاركة */
+.share-btn {
+    display: inline-block;
+    margin: 30px auto 0;
+    background: linear-gradient(135deg, #8B4513, #D2691E);
+    color: #FFD700;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #FFD700;
+    transition: all 0.3s;
+    font-size: 1em;
+}
+.share-btn:hover {
+    background: linear-gradient(135deg, #D2691E, #FFD700);
+    color: #2c1810;
+    transform: translateY(-3px);
+}
+.share-container { text-align: center; margin-top: 20px; }
 
 /* للجوال */
 @media (max-width: 768px) {
@@ -296,10 +481,29 @@ footer .heart { color: #e74c3c; }
     .section-title { font-size: 1.7em; }
     .videos-grid { grid-template-columns: 1fr; }
     .video-frame { height: 200px; }
+    .back-to-top { width: 50px; height: 50px; font-size: 1.3em; bottom: 20px; right: 20px; }
+    .whatsapp-float { width: 55px; height: 55px; font-size: 1.7em; bottom: 20px; left: 20px; }
 }
 </style>
 </head>
 <body>
+
+<!-- شاشة التحميل -->
+<div class="loader" id="loader">
+    <div class="loader-content">
+        <span class="loader-icon">🏛️</span>
+        <div class="loader-text">بلاد الصدارة التاريخية</div>
+    </div>
+</div>
+
+<!-- شريط تقدم القراءة -->
+<div class="reading-progress" id="readingProgress"></div>
+
+<!-- نافذة عرض الصور -->
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <img id="lightboxImg" src="" alt="عرض الصورة">
+</div>
 
 <header>
     <h1>🏛️ بلاد الصدارة التاريخية</h1>
@@ -307,23 +511,26 @@ footer .heart { color: #e74c3c; }
     <div class="engineer-credit">✨ تصميم وتطوير: المهندس صلووح المانعي ✨</div>
 </header>
 
-<nav>
-    <a href="#home">الرئيسية</a>
-    <a href="#photos">الصور</a>
-    <a href="#videos">المقاطع</a>
-    <a href="#contact">تواصل</a>
-    <a href="#news">الأخبار</a>
+<nav id="mainNav">
+    <a href="#home" class="nav-link">الرئيسية</a>
+    <a href="#photos" class="nav-link">الصور</a>
+    <a href="#videos" class="nav-link">المقاطع</a>
+    <a href="#contact" class="nav-link">تواصل</a>
+    <a href="#news" class="nav-link">الأخبار</a>
     <span class="nav-brand">📞 782953692 | 🇾🇪 اليمن</span>
 </nav>
 
 <!-- الرئيسية -->
-<div class="container" id="home">
+<div class="container reveal" id="home">
     <h2 class="section-title">مرحباً بكم</h2>
     <div class="section-divider"></div>
     <p style="text-align:center; font-size:1.15em; color:#555; max-width:800px; margin:0 auto;">
         موقع مخصص لعرض أجمل الصور والمقاطع المرئية وأحدث الأخبار عن <strong>بلاد الصدارة التاريخية</strong>.
         نوثق جمال اليمن، تاريخه، وطبيعته الخلابة بأجمل الصور.
     </p>
+    <div class="share-container">
+        <button class="share-btn" onclick="shareWebsite()">📤 شارك الموقع مع أصدقائك</button>
+    </div>
 </div>
 
 <div class="engineer-bar">
@@ -331,39 +538,42 @@ footer .heart { color: #e74c3c; }
 </div>
 
 <!-- معرض الصور -->
-<div class="container" id="photos">
+<div class="container reveal" id="photos">
     <h2 class="section-title">📸 معرض الصور</h2>
     <div class="section-divider"></div>
     <div class="gallery">
-        <div class="card">
-            <img src="photo1.jpg" alt="مناظر من بلاد الصدارة">
+        <div class="card" onclick="openLightbox('photo1.jpg')">
+            <img src="photo1.jpg" alt="مناظر من بلاد الصدارة" loading="lazy">
             <div class="card-body">
                 <h3>مناظر من بلاد الصدارة</h3>
                 <p>صورة توثق جمال الطبيعة والمعمار في بلاد الصدارة التاريخية.</p>
             </div>
         </div>
-        <div class="card">
-            <img src="photo2.jpg" alt="تراث وأصالة">
+        <div class="card" onclick="openLightbox('photo2.jpg')">
+            <img src="photo2.jpg" alt="تراث وأصالة" loading="lazy">
             <div class="card-body">
                 <h3>تراث وأصالة</h3>
                 <p>لمحة من عبق التاريخ وأصالة المكان في بلاد الصدارة.</p>
             </div>
         </div>
-        <div class="card">
-            <img src="photo3.jpg" alt="جمال الطبيعة">
+        <div class="card" onclick="openLightbox('photo3.jpg')">
+            <img src="photo3.jpg" alt="جمال الطبيعة" loading="lazy">
             <div class="card-body">
                 <h3>جمال الطبيعة</h3>
                 <p>مناظر خلابة تجسد سحر الطبيعة في ربوع بلاد الصدارة.</p>
             </div>
         </div>
-        <div class="card">
-            <img src="photo4.jpg" alt="معالم تاريخية">
+        <div class="card" onclick="openLightbox('photo4.jpg')">
+            <img src="photo4.jpg" alt="معالم تاريخية" loading="lazy">
             <div class="card-body">
                 <h3>معالم تاريخية</h3>
                 <p>آثار ومعالم تحكي قصة حضارة عريقة في بلاد الصدارة التاريخية.</p>
             </div>
         </div>
     </div>
+    <p style="text-align:center; margin-top:25px; color:#8B4513; font-size:0.9em;">
+        💡 اضغط على أي صورة لعرضها بالحجم الكامل
+    </p>
 </div>
 
 <div class="engineer-bar">
@@ -371,18 +581,17 @@ footer .heart { color: #e74c3c; }
 </div>
 
 <!-- المقاطع المرئية -->
-<div class="container" id="videos">
+<div class="container reveal" id="videos">
     <h2 class="section-title">🎬 المقاطع المرئية</h2>
     <div class="section-divider"></div>
     
     <div class="videos-grid">
-        
         <div class="video-item">
             <div class="video-frame">
                 <iframe src="https://www.youtube.com/embed/wpJvXCJ7mSk" 
                         title="منطقة الصدارة بمديرية حجر"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen></iframe>
+                        allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="video-info">
                 <h3>📍 منطقة الصدارة بمديرية حجر</h3>
@@ -395,7 +604,7 @@ footer .heart { color: #e74c3c; }
                 <iframe src="https://www.youtube.com/embed/oayEaxI2WaI" 
                         title="فيديو من بلاد الصدارة"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen></iframe>
+                        allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="video-info">
                 <h3>🎥 فيديو من بلاد الصدارة</h3>
@@ -408,14 +617,13 @@ footer .heart { color: #e74c3c; }
                 <iframe src="https://www.youtube.com/embed/TLFgc8nMuqI" 
                         title="فيديو من بلاد الصدارة"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen></iframe>
+                        allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="video-info">
                 <h3>🎬 فيديو من بلاد الصدارة</h3>
                 <p>لقطات جميلة توثق جمال المنطقة.</p>
             </div>
         </div>
-        
     </div>
     
     <div class="youtube-channel-btn">
@@ -430,7 +638,7 @@ footer .heart { color: #e74c3c; }
 </div>
 
 <!-- التواصل الاجتماعي -->
-<div class="container" id="contact">
+<div class="container reveal" id="contact">
     <h2 class="section-title">📱 تابعنا وتواصل معنا</h2>
     <div class="section-divider"></div>
     
@@ -463,11 +671,11 @@ footer .heart { color: #e74c3c; }
 </div>
 
 <!-- الأخبار -->
-<div class="container" id="news">
+<div class="container reveal" id="news">
     <h2 class="section-title">📰 آخر الأخبار</h2>
     <div class="section-divider"></div>
     <div class="news-item">
-        <span class="date">📅 اليوم</span>
+        <span class="date">📅 <span id="todayDate"></span></span>
         <h3>افتتاح معرض الصور اليمنية</h3>
         <p>أعلنت الجهات المختصة عن افتتاح معرض شامل للصور التاريخية والطبيعية لليمن، يضم أكثر من 100 صورة نادرة.</p>
     </div>
@@ -494,7 +702,108 @@ footer .heart { color: #e74c3c; }
     <p class="copyright">صُنع بـ <span class="heart">❤️</span> للحفاظ على التاريخ والجمال</p>
 </footer>
 
+<!-- زر واتساب عائم -->
 <a href="https://wa.me/967782953692" class="whatsapp-float" target="_blank" title="تواصل عبر واتساب">💬</a>
+
+<!-- زر العودة للأعلى -->
+<div class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</div>
+
+<script>
+// شاشة التحميل
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        document.getElementById('loader').classList.add('hidden');
+    }, 800);
+});
+
+// شريط تقدم القراءة + زر العودة للأعلى
+window.addEventListener('scroll', function() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    document.getElementById('readingProgress').style.width = scrolled + '%';
+    
+    var backBtn = document.getElementById('backToTop');
+    if (winScroll > 400) {
+        backBtn.classList.add('visible');
+    } else {
+        backBtn.classList.remove('visible');
+    }
+});
+
+// العودة للأعلى
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// حركات الدخول عند التمرير
+var revealElements = document.querySelectorAll('.reveal');
+var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.1 });
+
+revealElements.forEach(function(el) {
+    revealObserver.observe(el);
+});
+
+// نافذة عرض الصور
+function openLightbox(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+}
+document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target.id === 'lightbox') closeLightbox();
+});
+
+// زر المشاركة
+function shareWebsite() {
+    var shareData = {
+        title: 'بلاد الصدارة التاريخية',
+        text: 'شاهد موقع بلاد الصدارة التاريخية - صور ومقاطع وأخبار',
+        url: window.location.href
+    };
+    if (navigator.share) {
+        navigator.share(shareData).catch(function() {});
+    } else {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+            alert('✅ تم نسخ رابط الموقع! يمكنك مشاركته الآن.');
+        });
+    }
+}
+
+// تحديد القسم النشط في التنقل
+var sections = document.querySelectorAll('.container[id]');
+var navLinks = document.querySelectorAll('.nav-link');
+window.addEventListener('scroll', function() {
+    var current = '';
+    sections.forEach(function(section) {
+        var sectionTop = section.offsetTop - 100;
+        if (window.pageYOffset >= sectionTop) {
+            current = section.getAttribute('id');
+        }
+    });
+    navLinks.forEach(function(link) {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// التاريخ تلقائياً
+var today = new Date();
+var options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+document.getElementById('todayDate').textContent = today.toLocaleDateString('ar-EG', options);
+</script>
 
 </body>
 </html>
