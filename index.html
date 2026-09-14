@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بلاد الصدارة التاريخية</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; }
+body { background-color: #f4f1ea; color: #333; line-height: 1.6; }
+header { background: linear-gradient(135deg, #8B4513, #D2691E); color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid #FFD700; }
+header h1 { font-size: 2.5em; margin-bottom: 10px; }
+header p { font-size: 1.2em; opacity: 0.9; }
+nav { background-color: #5D2E0C; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 100; }
+nav a { color: #FFD700; text-decoration: none; margin: 0 15px; font-size: 1.1em; font-weight: bold; }
+nav a:hover { color: white; }
+.container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+.section-title { text-align: center; font-size: 2em; color: #5D2E0C; margin-bottom: 30px; padding-bottom: 15px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: #D2691E; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.card img { width: 100%; height: 200px; object-fit: cover; background: #ddd; }
+.card-body { padding: 15px; }
+.card-body h3 { color: #8B4513; margin-bottom: 8px; }
+.video-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px; }
+.video-placeholder { width: 100%; height: 300px; background: linear-gradient(135deg, #5D2E0C, #8B4513); display: flex; align-items: center; justify-content: center; color: #FFD700; font-size: 3em; }
+.news-item { background: white; padding: 20px; border-right: 5px solid #D2691E; border-radius: 5px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.news-item h3 { color: #5D2E0C; margin-bottom: 8px; }
+.news-item .date { color: #999; font-size: 0.85em; }
+footer { background: #2c1810; color: #FFD700; text-align: center; padding: 30px 20px; margin-top: 40px; }
+</style>
+</head>
+<body>
+<header>
+<h1>🏛️ بلاد الصدارة التاريخية</h1>
+<p>صور، مقاطع، وأخبار من قلب التاريخ</p>
+</header>
+<nav>
+<a href="#home">الرئيسية</a>
+<a href="#photos">الصور</a>
+<a href="#videos">المقاطع</a>
+<a href="#news">الأخبار</a>
+</nav>
+<div class="container" id="home">
+<h2 class="section-title">مرحباً بكم</h2>
+<p style="text-align:center; font-size:1.1em; color:#555;">موقع مخصص لعرض أجمل الصور والمقاطع المرئية وأحدث الأخبار عن بلاد الصدارة التاريخية.</p>
+</div>
+<div class="container" id="photos">
+<h2 class="section-title">📸 معرض الصور</h2>
+<div class="gallery">
+<div class="card">
+<img src="https://via.placeholder.com/400x300/8B4513/FFFFFF?text=صورة+1" alt="صورة">
+<div class="card-body"><h3>عنوان الصورة الأولى</h3><p>وصف مختصر للصورة.</p></div>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/400x300/D2691E/FFFFFF?text=صورة+2" alt="صورة">
+<div class="card-body"><h3>عنوان الصورة الثانية</h3><p>وصف مختصر للصورة.</p></div>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/400x300/5D2E0C/FFFFFF?text=صورة+3" alt="صورة">
+<div class="card-body"><h3>عنوان الصورة الثالثة</h3><p>وصف مختصر للصورة.</p></div>
+</div>
+</div>
+</div>
+<div class="container" id="videos">
+<h2 class="section-title">🎬 المقاطع المرئية</h2>
+<div class="video-card">
+<div class="video-placeholder">▶</div>
+<div style="padding:20px;"><h3 style="color:#8B4513;">عنوان المقطع الأول</h3><p>وصف المقطع المرئي الأول.</p></div>
+</div>
+</div>
+<div class="container" id="news">
+<h2 class="section-title">📰 آخر الأخبار</h2>
+<div class="news-item">
+<span class="date">📅 اليوم</span>
+<h3>عنوان الخبر الأول</h3>
+<p>نص الخبر الأول عن آخر مستجدات بلاد الصدارة التاريخية.</p>
+</div>
+</div>
+<footer>
+<p>© 2025 بلاد الصدارة التاريخية - جميع الحقوق محفوظة</p>
+<p>صُنع بـ ❤️ للحفاظ على التاريخ</p>
+</footer>
+</body>
+</html>
