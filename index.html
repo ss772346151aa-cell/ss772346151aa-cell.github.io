@@ -3,82 +3,379 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>بلاد الصدارة التاريخية</title>
+<meta name="author" content="المهندس صلووح المانعي">
+<meta name="description" content="موقع بلاد الصدارة التاريخية - صور ومقاطع وأخبار من قلب اليمن السعيد. صنع بواسطة المهندس صلووح المانعي للشبكات والمواقع. للتواصل: 782953692">
+<title>بلاد الصدارة التاريخية | المهندس صلووح المانعي</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; }
-body { background-color: #f4f1ea; color: #333; line-height: 1.6; }
-header { background: linear-gradient(135deg, #8B4513, #D2691E); color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid #FFD700; }
-header h1 { font-size: 2.5em; margin-bottom: 10px; }
-header p { font-size: 1.2em; opacity: 0.9; }
-nav { background-color: #5D2E0C; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 100; }
-nav a { color: #FFD700; text-decoration: none; margin: 0 15px; font-size: 1.1em; font-weight: bold; }
-nav a:hover { color: white; }
-.container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-.section-title { text-align: center; font-size: 2em; color: #5D2E0C; margin-bottom: 30px; padding-bottom: 15px; position: relative; }
-.section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: #D2691E; }
-.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-.card img { width: 100%; height: 200px; object-fit: cover; background: #ddd; }
-.card-body { padding: 15px; }
-.card-body h3 { color: #8B4513; margin-bottom: 8px; }
-.video-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px; }
-.video-placeholder { width: 100%; height: 300px; background: linear-gradient(135deg, #5D2E0C, #8B4513); display: flex; align-items: center; justify-content: center; color: #FFD700; font-size: 3em; }
-.news-item { background: white; padding: 20px; border-right: 5px solid #D2691E; border-radius: 5px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.news-item h3 { color: #5D2E0C; margin-bottom: 8px; }
-.news-item .date { color: #999; font-size: 0.85em; }
-footer { background: #2c1810; color: #FFD700; text-align: center; padding: 30px 20px; margin-top: 40px; }
+body { background-color: #f8f5ef; color: #2c1810; line-height: 1.7; }
+
+/* الترويسة الرئيسية */
+header {
+    background: linear-gradient(rgba(44, 24, 16, 0.75), rgba(93, 46, 12, 0.85)), 
+                url('https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1600') center/cover;
+    color: white;
+    padding: 100px 20px 80px;
+    text-align: center;
+    border-bottom: 6px solid #FFD700;
+    position: relative;
+}
+header h1 { font-size: 3em; margin-bottom: 15px; text-shadow: 3px 3px 8px rgba(0,0,0,0.7); letter-spacing: 2px; }
+header p { font-size: 1.3em; opacity: 0.95; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+header .engineer-credit {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 30px;
+    background: rgba(255, 215, 0, 0.15);
+    border: 2px solid #FFD700;
+    border-radius: 50px;
+    font-size: 1.05em;
+    color: #FFD700;
+    backdrop-filter: blur(10px);
+    font-weight: bold;
+}
+
+/* شريط التنقل */
+nav {
+    background-color: #2c1810;
+    padding: 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border-bottom: 3px solid #FFD700;
+}
+nav a {
+    color: #FFD700;
+    text-decoration: none;
+    display: inline-block;
+    padding: 20px 30px;
+    font-size: 1.15em;
+    font-weight: bold;
+    transition: all 0.3s;
+    position: relative;
+}
+nav a:hover { background-color: #5D2E0C; color: white; }
+nav a:hover::after { content: ''; position: absolute; bottom: 0; left: 20%; right: 20%; height: 3px; background: #FFD700; }
+nav .nav-brand {
+    color: white;
+    font-weight: bold;
+    padding: 20px 25px;
+    display: inline-block;
+    font-size: 0.95em;
+    border-right: 1px solid #5D2E0C;
+}
+
+/* الحاويات */
+.container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+.section-title {
+    text-align: center;
+    font-size: 2.3em;
+    color: #5D2E0C;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 20px;
+}
+.section-title::after {
+    content: '❖';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f8f5ef;
+    color: #D2691E;
+    padding: 0 15px;
+    font-size: 0.7em;
+}
+.section-divider {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #D2691E, transparent);
+    margin: 0 auto 40px;
+}
+
+/* شريط اسم المهندس تحت كل قسم */
+.engineer-bar {
+    text-align: center;
+    padding: 15px;
+    background: linear-gradient(90deg, transparent, rgba(210, 105, 30, 0.1), transparent);
+    color: #8B4513;
+    font-size: 0.95em;
+    font-weight: bold;
+    border-top: 1px dashed #D2691E;
+    border-bottom: 1px dashed #D2691E;
+    margin: 40px 0;
+}
+.engineer-bar span { color: #D2691E; font-size: 1.1em; }
+
+/* شبكة الصور */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    transition: all 0.4s;
+    border: 1px solid #e8e0d0;
+}
+.card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(139, 69, 19, 0.25); }
+.card img { width: 100%; height: 240px; object-fit: cover; transition: transform 0.4s; }
+.card:hover img { transform: scale(1.08); }
+.card-body { padding: 20px; }
+.card-body h3 { color: #8B4513; margin-bottom: 10px; font-size: 1.2em; }
+.card-body p { color: #666; font-size: 0.95em; }
+
+/* الفيديو */
+.video-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    margin-bottom: 25px;
+    border: 1px solid #e8e0d0;
+}
+.video-placeholder {
+    width: 100%;
+    height: 320px;
+    background: linear-gradient(135deg, #2c1810, #8B4513);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFD700;
+    font-size: 4em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.video-placeholder:hover { background: linear-gradient(135deg, #5D2E0C, #D2691E); }
+
+/* الأخبار */
+.news-item {
+    background: white;
+    padding: 25px;
+    border-right: 6px solid #D2691E;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+}
+.news-item:hover { border-right-color: #FFD700; transform: translateX(-5px); }
+.news-item h3 { color: #5D2E0C; margin-bottom: 10px; font-size: 1.3em; }
+.news-item .date { color: #D2691E; font-size: 0.9em; font-weight: bold; display: block; margin-bottom: 8px; }
+.news-item p { color: #555; }
+
+/* التذييل */
+footer {
+    background: linear-gradient(135deg, #1a0f08, #2c1810);
+    color: #FFD700;
+    text-align: center;
+    padding: 50px 20px 30px;
+    margin-top: 60px;
+    border-top: 5px solid #D2691E;
+}
+footer .footer-brand {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #FFD700;
+}
+footer .footer-engineer {
+    font-size: 1.15em;
+    color: white;
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    display: inline-block;
+    max-width: 500px;
+}
+footer .footer-engineer strong { color: #FFD700; }
+footer .contact-line { margin: 8px 0; font-size: 1em; }
+footer .contact-line a { color: #FFD700; text-decoration: none; font-weight: bold; }
+footer .contact-line a:hover { text-decoration: underline; }
+footer .copyright { font-size: 0.9em; opacity: 0.7; margin-top: 20px; }
+footer .heart { color: #e74c3c; }
+
+/* زر واتساب عائم */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    background: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+    z-index: 999;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+.whatsapp-float:hover { transform: scale(1.15); }
+
+/* للجوال */
+@media (max-width: 768px) {
+    header h1 { font-size: 2em; }
+    nav a { padding: 15px 12px; font-size: 0.95em; }
+    nav .nav-brand { padding: 15px 12px; font-size: 0.8em; display: block; border-right: none; border-top: 1px solid #5D2E0C; }
+    .section-title { font-size: 1.7em; }
+}
 </style>
 </head>
 <body>
+
 <header>
-<h1>🏛️ بلاد الصدارة التاريخية</h1>
-<p>صور، مقاطع، وأخبار من قلب التاريخ</p>
+    <h1>🏛️ بلاد الصدارة التاريخية</h1>
+    <p>صور، مقاطع، وأخبار من قلب اليمن السعيد</p>
+    <div class="engineer-credit">✨ تصميم وتطوير: المهندس صلووح المانعي ✨</div>
 </header>
+
 <nav>
-<a href="#home">الرئيسية</a>
-<a href="#photos">الصور</a>
-<a href="#videos">المقاطع</a>
-<a href="#news">الأخبار</a>
+    <a href="#home">الرئيسية</a>
+    <a href="#photos">الصور</a>
+    <a href="#videos">المقاطع</a>
+    <a href="#news">الأخبار</a>
+    <span class="nav-brand">📞 782953692 | 🇾🇪 اليمن</span>
 </nav>
+
 <div class="container" id="home">
-<h2 class="section-title">مرحباً بكم</h2>
-<p style="text-align:center; font-size:1.1em; color:#555;">موقع مخصص لعرض أجمل الصور والمقاطع المرئية وأحدث الأخبار عن بلاد الصدارة التاريخية.</p>
+    <h2 class="section-title">مرحباً بكم</h2>
+    <div class="section-divider"></div>
+    <p style="text-align:center; font-size:1.15em; color:#555; max-width:800px; margin:0 auto;">
+        موقع مخصص لعرض أجمل الصور والمقاطع المرئية وأحدث الأخبار عن <strong>بلاد الصدارة التاريخية</strong>.
+        نوثق جمال اليمن، تاريخه، وطبيعته الخلابة بأجمل الصور.
+    </p>
 </div>
+
+<div class="engineer-bar">
+    <span>◆</span> تم تصميم وتطوير هذا الموقع بواسطة <strong>المهندس صلووح المانعي للشبكات والمواقع</strong> <span>◆</span>
+</div>
+
+<!-- قسم الصور -->
 <div class="container" id="photos">
-<h2 class="section-title">📸 معرض الصور</h2>
-<div class="gallery">
-<div class="card">
-<img src="https://via.placeholder.com/400x300/8B4513/FFFFFF?text=صورة+1" alt="صورة">
-<div class="card-body"><h3>عنوان الصورة الأولى</h3><p>وصف مختصر للصورة.</p></div>
+    <h2 class="section-title">📸 معرض الصور</h2>
+    <div class="section-divider"></div>
+    <div class="gallery">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600&q=80" alt="جبال اليمن">
+            <div class="card-body">
+                <h3>جبال اليمن الشامخة</h3>
+                <p>مناظر خلابة من جبال اليمن السعيد، حيث الطبيعة تلتقي بالتاريخ.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1578895101408-1a36b834405b?w=600&q=80" alt="معمار يمني">
+            <div class="card-body">
+                <h3>المعمار اليمني الأصيل</h3>
+                <p>بيوت صنعاء القديمة بنقوشها الفريدة وألوانها التراثية.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=600&q=80" alt="طبيعة اليمن">
+            <div class="card-body">
+                <h3>طبيعة خلابة</h3>
+                <p>خضرة اليمن وجمال أراضيه الزراعية في مواسم الأمطار.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?w=600&q=80" alt="سواحل اليمن">
+            <div class="card-body">
+                <h3>سواحل اليمن</h3>
+                <p>شواطئ بحر العرب والبحر الأحمر بجمالها الساحر.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80" alt="تاريخ اليمن">
+            <div class="card-body">
+                <h3>معالم تاريخية</h3>
+                <p>آثار وممالك يمنية قديمة تحكي قصة حضارة عريقة.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600013062013-4b4b3e7b8f4a?w=600&q=80" alt="اليمن السعيد">
+            <div class="card-body">
+                <h3>اليمن السعيد</h3>
+                <p>لوحات طبيعية تجسد جمال اليمن في كل الفصول.</p>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="card">
-<img src="https://via.placeholder.com/400x300/D2691E/FFFFFF?text=صورة+2" alt="صورة">
-<div class="card-body"><h3>عنوان الصورة الثانية</h3><p>وصف مختصر للصورة.</p></div>
+
+<div class="engineer-bar">
+    <span>◆</span> موقع من تطوير <strong>المهندس صلووح المانعي للشبكات والمواقع</strong> <span>◆</span>
 </div>
-<div class="card">
-<img src="https://via.placeholder.com/400x300/5D2E0C/FFFFFF?text=صورة+3" alt="صورة">
-<div class="card-body"><h3>عنوان الصورة الثالثة</h3><p>وصف مختصر للصورة.</p></div>
-</div>
-</div>
-</div>
+
+<!-- قسم المقاطع -->
 <div class="container" id="videos">
-<h2 class="section-title">🎬 المقاطع المرئية</h2>
-<div class="video-card">
-<div class="video-placeholder">▶</div>
-<div style="padding:20px;"><h3 style="color:#8B4513;">عنوان المقطع الأول</h3><p>وصف المقطع المرئي الأول.</p></div>
+    <h2 class="section-title">🎬 المقاطع المرئية</h2>
+    <div class="section-divider"></div>
+    <div class="video-card">
+        <div class="video-placeholder">▶</div>
+        <div style="padding:25px;">
+            <h3 style="color:#8B4513; margin-bottom:10px;">جولة في جبال اليمن</h3>
+            <p style="color:#666;">استمتع بمشاهدة أجمل المشاهد الطبيعية من جبال اليمن السعيد.</p>
+        </div>
+    </div>
+    <div class="video-card">
+        <div class="video-placeholder">▶</div>
+        <div style="padding:25px;">
+            <h3 style="color:#8B4513; margin-bottom:10px;">صنعاء القديمة</h3>
+            <p style="color:#666;">رحلة في أزقة صنعاء التاريخية ومعمارها الفريد.</p>
+        </div>
+    </div>
 </div>
+
+<div class="engineer-bar">
+    <span>◆</span> تصميم وإشراف تقني: <strong>المهندس صلووح المانعي</strong> <span>◆</span>
 </div>
+
+<!-- قسم الأخبار -->
 <div class="container" id="news">
-<h2 class="section-title">📰 آخر الأخبار</h2>
-<div class="news-item">
-<span class="date">📅 اليوم</span>
-<h3>عنوان الخبر الأول</h3>
-<p>نص الخبر الأول عن آخر مستجدات بلاد الصدارة التاريخية.</p>
+    <h2 class="section-title">📰 آخر الأخبار</h2>
+    <div class="section-divider"></div>
+    <div class="news-item">
+        <span class="date">📅 اليوم</span>
+        <h3>افتتاح معرض الصور اليمنية</h3>
+        <p>أعلنت الجهات المختصة عن افتتاح معرض شامل للصور التاريخية والطبيعية لليمن، يضم أكثر من 100 صورة نادرة.</p>
+    </div>
+    <div class="news-item">
+        <span class="date">📅 أمس</span>
+        <h3>جهود للحفاظ على التراث اليمني</h3>
+        <p>مبادرات جديدة تهدف إلى توثيق وحماية المعالم التاريخية في مختلف المحافظات اليمنية.</p>
+    </div>
+    <div class="news-item">
+        <span class="date">📅 هذا الأسبوع</span>
+        <h3>اليمن السعيد وجهة سياحية مميزة</h3>
+        <p>تشهد المناطق الطبيعية في اليمن اهتماماً متزايداً من السياح الباحثين عن الجمال الأصيل.</p>
+    </div>
 </div>
-</div>
+
 <footer>
-<p>© 2025 بلاد الصدارة التاريخية - جميع الحقوق محفوظة</p>
-<p>صُنع بـ ❤️ للحفاظ على التاريخ</p>
+    <div class="footer-brand">🏛️ بلاد الصدارة التاريخية</div>
+    <p>صور، مقاطع، وأخبار من قلب اليمن السعيد</p>
+    
+    <div class="footer-engineer">
+        👨‍💻 صُنع بواسطة <strong>المهندس صلووح المانعي</strong><br>
+        <span style="font-size:0.85em; opacity:0.9;">لتصميم الشبكات والمواقع الإلكترونية</span>
+        <div class="contact-line">📞 <strong>للتواصل:</strong> <a href="tel:782953692">782953692</a></div>
+        <div class="contact-line">💬 <strong>واتساب:</strong> <a href="https://wa.me/967782953692" target="_blank">اضغط للمحادثة</a></div>
+        <div class="contact-line">🌍 <strong>الدولة:</strong> <span style="color:#FFD700;">اليمن 🇾🇪</span></div>
+    </div>
+    
+    <p class="copyright">© 2025 بلاد الصدارة التاريخية - جميع الحقوق محفوظة</p>
+    <p class="copyright">صُنع بـ <span class="heart">❤️</span> للحفاظ على التاريخ والجمال</p>
 </footer>
+
+<!-- زر واتساب عائم -->
+<a href="https://wa.me/967782953692" class="whatsapp-float" target="_blank" title="تواصل عبر واتساب">💬</a>
+
 </body>
 </html>
