@@ -135,3 +135,93 @@ window.addEventListener('scroll', function() {
         }
     });
 });
+// ====== Hero Slider ======
+var slides = document.querySelectorAll('.hero-slide');
+var dots = document.querySelectorAll('.hero-dot');
+var currentSlide = 0;
+
+function showSlide(index) {
+    slides.forEach(function(s, i) {
+        s.classList.toggle('active', i === index);
+    });
+    dots.forEach(function(d, i) {
+        d.classList.toggle('active', i === index);
+    });
+    currentSlide = index;
+}
+
+if (slides.length > 0) {
+    setInterval(function() {
+        var next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+    }, 4000);
+}
+
+function goToSlide(index) { showSlide(index); }
+
+// ====== عداد الإحصائيات ======
+function animateCounter(element, target, duration) {
+    var start = 0;
+    var increment = target / (duration / 16);
+    var current = start;
+    var timer = setInterval(function() {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target;
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current);
+        }
+    }, 16);
+}
+
+var statsObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+            var numberEl = entry.target;
+            var target = parseInt(numberEl.getAttribute('data-target'));
+            animateCounter(numberEl, target, 2000);
+            statsObserver.unobserve(numberEl);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-number').forEach(function(el) {
+    statsObserver.observe(el);
+});
+
+// ====== نافذة الترحيب ======
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        var welcomeShown = localStorage.getItem('welcomeShown');
+        var today = new Date().toDateString();
+        if (welcomeShown !== today) {
+            var popup = document.getElementById('welcomePopup');
+            if (popup) popup.classList.add('active');
+        }
+    }, 2000);
+});
+
+function closeWelcome() {
+    var popup = document.getElementById('welcomePopup');
+    if (popup) popup.classList.remove('active');
+    var today = new Date().toDateString();
+    localStorage.setItem('welcomeShown', today);
+}
+
+// ====== نموذج التواصل عبر واتساب ======
+function sendWhatsApp(event) {
+    event.preventDefault();
+    var name = document.getElementById('formName').value.trim();
+    var message = document.getElementById('formMessage').value.trim();
+    
+    if (!name || !message) {
+        alert('الرجاء إدخال الاسم والرسالة');
+        return false;
+    }
+    
+    var text = 'السلام عليكم، أنا ' + name + '%0A%0A' + message;
+    var url = 'https://wa.me/967782953692?text=' + encodeURIComponent(text).replace(/%250A/g, '%0A');
+    window.open(url, '_blank');
+    return false;
+}
