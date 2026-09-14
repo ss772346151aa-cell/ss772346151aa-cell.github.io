@@ -573,3 +573,251 @@ footer .heart { color: #FF6B6B; }
     .breaking-label { font-size: 0.75em; }
     .breaking-content { font-size: 0.85em; }
   }
+/* ====== Hero Slider ====== */
+header {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-slider {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+}
+.hero-slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+.hero-slide.active { opacity: 1; }
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(rgba(21, 101, 192, 0.75), rgba(13, 71, 161, 0.85));
+    z-index: 1;
+}
+header .header-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 40px 20px;
+}
+.hero-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 10px;
+}
+.hero-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+.hero-dot.active {
+    background: #fff;
+    transform: scale(1.3);
+    border-color: var(--primary-light);
+}
+
+/* ====== عداد الإحصائيات ====== */
+.stats-section {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    padding: 50px 20px;
+    margin: 40px 0;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(21, 101, 192, 0.3);
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+.stat-item {
+    color: #fff;
+    padding: 20px;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s;
+}
+.stat-item:last-child { border-right: none; }
+.stat-item:hover { transform: translateY(-5px); }
+.stat-icon {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    display: block;
+}
+.stat-number {
+    font-size: 2.8em;
+    font-weight: 900;
+    color: #fff;
+    display: block;
+    line-height: 1;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+.stat-label {
+    font-size: 1em;
+    color: rgba(255,255,255,0.9);
+    margin-top: 8px;
+    display: block;
+    font-weight: 600;
+}
+
+/* ====== نافذة الترحيب ====== */
+.welcome-popup {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 9997;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 0.4s;
+}
+.welcome-popup.active { display: flex; }
+.welcome-box {
+    background: var(--bg-card);
+    color: var(--text);
+    max-width: 480px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+    border: 4px solid var(--primary);
+    animation: slideUp 0.5s;
+}
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.welcome-icon {
+    font-size: 4em;
+    margin-bottom: 15px;
+    display: block;
+    animation: pulse 2s infinite;
+}
+.welcome-box h2 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+.welcome-box p {
+    color: var(--text-light);
+    margin-bottom: 25px;
+    font-size: 1.05em;
+    line-height: 1.7;
+}
+.welcome-close {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 50px;
+    font-size: 1.05em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 20px rgba(21, 101, 192, 0.3);
+}
+.welcome-close:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(21, 101, 192, 0.5);
+}
+
+/* ====== نموذج التواصل ====== */
+.contact-form {
+    max-width: 700px;
+    margin: 30px auto;
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow);
+    border: 1px solid var(--border);
+}
+.contact-form h3 {
+    text-align: center;
+    color: var(--primary-dark);
+    margin-bottom: 25px;
+    font-size: 1.5em;
+}
+body.dark-mode .contact-form h3 { color: #79c0ff; }
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 0.95em;
+}
+body.dark-mode .form-group label { color: #79c0ff; }
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    font-size: 1em;
+    font-family: inherit;
+    background: var(--bg);
+    color: var(--text);
+    transition: all 0.3s;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(21, 101, 192, 0.15);
+}
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+.form-submit {
+    width: 100%;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff;
+    border: none;
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.form-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+}
+
+/* للجوال */
+@media (max-width: 768px) {
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 20px; }
+    .stat-item:last-child { border-bottom: none; }
+    .stat-number { font-size: 2.2em; }
+    .welcome-box { padding: 30px 20px; }
+}
