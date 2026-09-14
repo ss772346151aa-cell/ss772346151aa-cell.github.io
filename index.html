@@ -126,74 +126,71 @@ nav .nav-brand {
 .card-body h3 { color: #8B4513; margin-bottom: 10px; font-size: 1.2em; }
 .card-body p { color: #666; font-size: 0.95em; }
 
-/* قسم عرض الفيديو */
-.video-showcase {
-    max-width: 800px;
-    margin: 0 auto;
+/* قسم الفيديوهات */
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+.video-item {
     background: white;
-    border-radius: 20px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    border: 4px solid #D2691E;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    transition: all 0.4s;
+    border: 1px solid #e8e0d0;
 }
-.video-thumbnail {
+.video-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(139, 69, 19, 0.25);
+}
+.video-frame {
     width: 100%;
-    height: 350px;
-    background: linear-gradient(135deg, #2c1810, #5D2E0C, #D2691E);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    position: relative;
+    height: 200px;
+    background: #000;
+    overflow: hidden;
 }
-.play-icon {
-    width: 100px;
-    height: 100px;
-    background: rgba(255, 215, 0, 0.9);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3em;
-    color: #2c1810;
-    margin-bottom: 20px;
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-    animation: pulse 2s infinite;
+.video-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
 }
-@keyframes pulse {
-    0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 215, 0, 0.8); }
-    50% { transform: scale(1.1); box-shadow: 0 0 50px rgba(255, 215, 0, 1); }
+.video-info {
+    padding: 20px;
 }
-.video-label {
-    font-size: 1.3em;
-    font-weight: bold;
-    color: #FFD700;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+.video-info h3 {
+    color: #8B4513;
+    margin-bottom: 8px;
+    font-size: 1.1em;
 }
-.video-actions {
-    padding: 25px;
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-    background: #f8f5ef;
+.video-info p {
+    color: #666;
+    font-size: 0.95em;
 }
-.watch-btn {
+
+/* زر قناة يوتيوب */
+.youtube-channel-btn {
+    text-align: center;
+    margin-top: 30px;
+}
+.youtube-channel-btn a {
     display: inline-block;
-    padding: 15px 30px;
+    background: linear-gradient(135deg, #FF0000, #cc0000);
+    color: white;
+    padding: 18px 40px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 1.1em;
     transition: all 0.3s;
-    color: white;
-    text-align: center;
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.3);
 }
-.tiktok-btn { background: linear-gradient(135deg, #000000, #25F4EE); }
-.tiktok-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(37, 244, 238, 0.5); }
-.youtube-btn { background: linear-gradient(135deg, #FF0000, #cc0000); }
-.youtube-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255, 0, 0, 0.5); }
+.youtube-channel-btn a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 0, 0, 0.5);
+}
 
 /* قسم التواصل الاجتماعي */
 .social-grid {
@@ -297,9 +294,8 @@ footer .heart { color: #e74c3c; }
     nav a { padding: 15px 10px; font-size: 0.9em; }
     nav .nav-brand { padding: 12px 10px; font-size: 0.75em; display: block; border-right: none; border-top: 1px solid #5D2E0C; }
     .section-title { font-size: 1.7em; }
-    .video-thumbnail { height: 250px; }
-    .play-icon { width: 70px; height: 70px; font-size: 2em; }
-    .watch-btn { padding: 12px 20px; font-size: 0.9em; }
+    .videos-grid { grid-template-columns: 1fr; }
+    .video-frame { height: 200px; }
 }
 </style>
 </head>
@@ -374,24 +370,58 @@ footer .heart { color: #e74c3c; }
     <span>◆</span> موقع من تطوير <strong>المهندس صلووح المانعي للشبكات والمواقع</strong> <span>◆</span>
 </div>
 
-<!-- المقاطع -->
+<!-- المقاطع المرئية -->
 <div class="container" id="videos">
     <h2 class="section-title">🎬 المقاطع المرئية</h2>
     <div class="section-divider"></div>
     
-    <div class="video-showcase">
-        <div class="video-thumbnail">
-            <div class="play-icon">▶</div>
-            <div class="video-label">🎵 فيديو حصري على تيك توك</div>
+    <div class="videos-grid">
+        
+        <div class="video-item">
+            <div class="video-frame">
+                <iframe src="https://www.youtube.com/embed/wpJvXCJ7mSk" 
+                        title="منطقة الصدارة بمديرية حجر"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+                <h3>📍 منطقة الصدارة بمديرية حجر</h3>
+                <p>جولة مصورة في منطقة الصدارة بمديرية حجر.</p>
+            </div>
         </div>
-        <div class="video-actions">
-            <a href="https://vt.tiktok.com/ZSqQsdrxk/" target="_blank" class="watch-btn tiktok-btn">
-                🎵 شاهد الفيديو على تيك توك
-            </a>
-            <a href="https://youtube.com/@sloohy" target="_blank" class="watch-btn youtube-btn">
-                ▶️ شاهد المزيد على يوتيوب
-            </a>
+        
+        <div class="video-item">
+            <div class="video-frame">
+                <iframe src="https://www.youtube.com/embed/oayEaxI2WaI" 
+                        title="فيديو من بلاد الصدارة"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+                <h3>🎥 فيديو من بلاد الصدارة</h3>
+                <p>مشاهد مميزة من بلاد الصدارة التاريخية.</p>
+            </div>
         </div>
+        
+        <div class="video-item">
+            <div class="video-frame">
+                <iframe src="https://www.youtube.com/embed/TLFgc8nMuqI" 
+                        title="فيديو من بلاد الصدارة"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+                <h3>🎬 فيديو من بلاد الصدارة</h3>
+                <p>لقطات جميلة توثق جمال المنطقة.</p>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="youtube-channel-btn">
+        <a href="https://youtube.com/@sloohy" target="_blank">
+            ▶️ تابع قناتنا على يوتيوب لمشاهدة المزيد
+        </a>
     </div>
 </div>
 
