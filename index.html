@@ -5,24 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="المهندس صلووح المانعي">
 <meta name="description" content="بلاد الصدارة التاريخية - موقع إخباري شامل: أخبار عاجلة، صور، فيديوهات من قلب اليمن السعيد. صنع بواسطة المهندس صلووح المانعي. للتواصل: 782953692">
-<meta name="theme-color" content="#C8102E">
+<meta name="theme-color" content="#1565C0">
 <title>بلاد الصدارة التاريخية | آخر الأخبار والمستجدات</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; }
 html { scroll-behavior: smooth; }
-body { background-color: #0f0f0f; color: #f0f0f0; line-height: 1.7; overflow-x: hidden; }
+body { background-color: #f5f9ff; color: #212121; line-height: 1.7; overflow-x: hidden; transition: background 0.4s, color 0.4s; }
 
 /* شاشة التحميل */
 .loader {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
-    background: #0f0f0f;
+    background: linear-gradient(135deg, #1565C0, #42A5F5);
     display: flex; align-items: center; justify-content: center;
     z-index: 9999;
     transition: opacity 0.6s, visibility 0.6s;
 }
 .loader.hidden { opacity: 0; visibility: hidden; }
-.loader-content { text-align: center; color: #C8102E; }
+.loader-content { text-align: center; color: #fff; }
 .loader-icon { font-size: 4em; animation: pulse 1.5s infinite; display: block; margin-bottom: 20px; }
 @keyframes pulse {
     0%, 100% { transform: scale(1); opacity: 1; }
@@ -34,24 +34,24 @@ body { background-color: #0f0f0f; color: #f0f0f0; line-height: 1.7; overflow-x: 
 .reading-progress {
     position: fixed; top: 0; right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #C8102E, #ff4757);
+    background: linear-gradient(90deg, #1565C0, #42A5F5);
     width: 0%;
     z-index: 10000;
     transition: width 0.1s;
 }
 
-/* شريط عاجل متحرك */
+/* شريط الأخبار العاجلة */
 .breaking-bar {
-    background: #C8102E;
+    background: linear-gradient(90deg, #1565C0, #1976D2);
     color: white;
     padding: 10px 0;
     overflow: hidden;
     position: relative;
-    border-bottom: 1px solid #8B0000;
+    border-bottom: 2px solid #0D47A1;
 }
 .breaking-label {
-    background: #000;
-    color: #fff;
+    background: #fff;
+    color: #1565C0;
     padding: 4px 15px;
     font-weight: bold;
     font-size: 0.9em;
@@ -62,7 +62,7 @@ body { background-color: #0f0f0f; color: #f0f0f0; line-height: 1.7; overflow-x: 
 }
 @keyframes blink {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+    50% { opacity: 0.6; }
 }
 .breaking-content {
     display: inline-block;
@@ -76,75 +76,79 @@ body { background-color: #0f0f0f; color: #f0f0f0; line-height: 1.7; overflow-x: 
     100% { transform: translateX(100%); }
 }
 
-/* شريط علوي للتواصل الاجتماعي */
+/* الشريط العلوي */
 .top-bar {
-    background: #000;
-    padding: 8px 20px;
+    background: #ffffff;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.85em;
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid #e3f2fd;
+    box-shadow: 0 2px 10px rgba(21, 101, 192, 0.05);
+    transition: background 0.4s, border-color 0.4s;
 }
 .top-bar-social a {
-    color: #aaa;
+    color: #1565C0;
     text-decoration: none;
     margin-left: 15px;
     font-size: 1.1em;
-    transition: color 0.3s;
+    transition: all 0.3s;
 }
-.top-bar-social a:hover { color: #C8102E; }
-.top-bar-date { color: #888; }
+.top-bar-social a:hover { color: #42A5F5; transform: scale(1.2); }
+.top-bar-date { color: #666; }
 
-/* الترويسة الرئيسية */
+/* الترويسة */
 header {
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(15, 15, 15, 0.95)), 
+    background: linear-gradient(rgba(21, 101, 192, 0.75), rgba(13, 71, 161, 0.85)), 
                 url('photo1.jpg') center/cover;
     color: white;
-    padding: 60px 20px 50px;
+    padding: 70px 20px 60px;
     text-align: center;
-    border-bottom: 4px solid #C8102E;
+    border-bottom: 5px solid #42A5F5;
     position: relative;
 }
 header h1 { 
     font-size: 3.2em; 
     margin-bottom: 10px; 
-    text-shadow: 3px 3px 10px rgba(0,0,0,0.9); 
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.5); 
     letter-spacing: 1px;
     color: #fff;
 }
-header h1 .red { color: #C8102E; }
-header p { font-size: 1.2em; color: #ddd; margin-bottom: 20px; }
+header h1 .blue { color: #64B5F6; }
+header p { font-size: 1.2em; color: #e3f2fd; margin-bottom: 20px; }
 header .engineer-credit {
     display: inline-block;
     margin-top: 15px;
     padding: 10px 25px;
-    background: rgba(200, 16, 46, 0.15);
-    border: 2px solid #C8102E;
-    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid #fff;
+    border-radius: 30px;
     font-size: 0.95em;
-    color: #C8102E;
+    color: #fff;
     font-weight: bold;
+    backdrop-filter: blur(10px);
 }
 
 /* شريط التنقل */
 nav {
-    background: #1a1a1a;
+    background: #ffffff;
     padding: 0;
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    border-bottom: 2px solid #C8102E;
+    box-shadow: 0 4px 20px rgba(21, 101, 192, 0.15);
+    border-bottom: 3px solid #1565C0;
+    transition: background 0.4s, border-color 0.4s;
 }
 nav a {
-    color: #fff;
+    color: #1565C0;
     text-decoration: none;
     display: inline-block;
-    padding: 18px 25px;
+    padding: 18px 22px;
     font-size: 1.05em;
-    font-weight: 600;
+    font-weight: 700;
     transition: all 0.3s;
     position: relative;
 }
@@ -155,18 +159,38 @@ nav a::after {
     right: 50%;
     left: 50%;
     height: 3px;
-    background: #C8102E;
+    background: #42A5F5;
     transition: all 0.3s;
 }
-nav a:hover { background: #C8102E; color: white; }
+nav a:hover { background: #e3f2fd; color: #0D47A1; }
 nav a:hover::after, nav a.active::after { right: 0; left: 0; }
 nav .nav-clock {
-    color: #C8102E;
+    color: #1565C0;
     font-weight: bold;
-    padding: 18px 20px;
+    padding: 18px 18px;
     display: inline-block;
     font-size: 0.9em;
-    border-right: 1px solid #333;
+    border-right: 1px solid #e3f2fd;
+}
+
+/* زر الثيم */
+.theme-toggle {
+    background: linear-gradient(135deg, #1565C0, #42A5F5);
+    color: #fff;
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin: 8px 15px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(21, 101, 192, 0.3);
+    vertical-align: middle;
+}
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(20deg);
+    box-shadow: 0 6px 20px rgba(21, 101, 192, 0.5);
 }
 
 /* الحاويات والعناوين */
@@ -174,8 +198,8 @@ nav .nav-clock {
 .section-title {
     text-align: center;
     font-size: 2.2em;
-    color: #fff;
-    margin-bottom: 10px;
+    color: #0D47A1;
+    margin-bottom: 30px;
     position: relative;
     padding-bottom: 20px;
     font-weight: 800;
@@ -189,21 +213,20 @@ nav .nav-clock {
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: #C8102E;
+    background: linear-gradient(90deg, #1565C0, #42A5F5);
     border-radius: 2px;
 }
-.section-divider { display: none; }
 
 /* شريط اسم المهندس */
 .engineer-bar {
     text-align: center;
     padding: 15px;
-    background: linear-gradient(90deg, transparent, rgba(200, 16, 46, 0.1), transparent);
-    color: #C8102E;
+    background: linear-gradient(90deg, transparent, rgba(21, 101, 192, 0.08), transparent);
+    color: #1565C0;
     font-size: 0.95em;
     font-weight: bold;
-    border-top: 1px solid #222;
-    border-bottom: 1px solid #222;
+    border-top: 1px dashed #90CAF9;
+    border-bottom: 1px dashed #90CAF9;
     margin: 30px 0;
 }
 
@@ -211,31 +234,36 @@ nav .nav-clock {
 .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* أخبار عاجلة */
+/* الأخبار العاجلة */
 .urgent-news {
-    background: #1a1a1a;
-    border-right: 5px solid #C8102E;
+    background: #ffffff;
+    border-right: 5px solid #1565C0;
     padding: 20px 25px;
     margin-bottom: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
     transition: all 0.3s;
     cursor: pointer;
+    box-shadow: 0 4px 15px rgba(21, 101, 192, 0.1);
 }
-.urgent-news:hover { background: #252525; transform: translateX(-5px); }
+.urgent-news:hover { 
+    background: #e3f2fd; 
+    transform: translateX(-5px); 
+    box-shadow: 0 8px 25px rgba(21, 101, 192, 0.2);
+}
 .urgent-tag {
-    background: #C8102E;
+    background: linear-gradient(135deg, #1565C0, #42A5F5);
     color: white;
-    padding: 3px 12px;
-    border-radius: 3px;
+    padding: 4px 14px;
+    border-radius: 20px;
     font-size: 0.8em;
     font-weight: bold;
     display: inline-block;
     margin-bottom: 10px;
     animation: blink 1.5s infinite;
 }
-.urgent-news h3 { color: #fff; margin-bottom: 8px; font-size: 1.3em; font-weight: 700; }
-.urgent-news .date { color: #888; font-size: 0.85em; margin-bottom: 10px; display: block; }
-.urgent-news p { color: #bbb; }
+.urgent-news h3 { color: #0D47A1; margin-bottom: 8px; font-size: 1.3em; font-weight: 700; }
+.urgent-news .date { color: #42A5F5; font-size: 0.85em; margin-bottom: 10px; display: block; font-weight: 600; }
+.urgent-news p { color: #555; }
 
 /* بطاقات الأخبار */
 .news-grid {
@@ -244,34 +272,35 @@ nav .nav-clock {
     gap: 25px;
 }
 .news-card {
-    background: #1a1a1a;
-    border-radius: 8px;
+    background: #ffffff;
+    border-radius: 12px;
     overflow: hidden;
     transition: all 0.4s;
-    border: 1px solid #252525;
+    border: 1px solid #e3f2fd;
     cursor: pointer;
+    box-shadow: 0 4px 15px rgba(21, 101, 192, 0.08);
 }
 .news-card:hover { 
     transform: translateY(-5px); 
-    box-shadow: 0 15px 40px rgba(200, 16, 46, 0.3);
-    border-color: #C8102E;
+    box-shadow: 0 15px 40px rgba(21, 101, 192, 0.25);
+    border-color: #42A5F5;
 }
 .news-card img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.5s; }
 .news-card:hover img { transform: scale(1.05); }
 .news-card-body { padding: 20px; }
 .news-card-body .category {
-    background: #C8102E;
+    background: linear-gradient(135deg, #1565C0, #42A5F5);
     color: white;
-    padding: 3px 10px;
-    border-radius: 3px;
+    padding: 4px 12px;
+    border-radius: 20px;
     font-size: 0.75em;
     font-weight: bold;
     display: inline-block;
     margin-bottom: 12px;
 }
-.news-card-body h3 { color: #fff; margin-bottom: 10px; font-size: 1.15em; font-weight: 700; line-height: 1.4; }
-.news-card-body .date { color: #888; font-size: 0.85em; margin-bottom: 10px; display: block; }
-.news-card-body p { color: #aaa; font-size: 0.95em; }
+.news-card-body h3 { color: #0D47A1; margin-bottom: 10px; font-size: 1.15em; font-weight: 700; line-height: 1.4; }
+.news-card-body .date { color: #42A5F5; font-size: 0.85em; margin-bottom: 10px; display: block; font-weight: 600; }
+.news-card-body p { color: #666; font-size: 0.95em; }
 
 /* معرض الصور */
 .gallery {
@@ -280,29 +309,30 @@ nav .nav-clock {
     gap: 20px;
 }
 .card {
-    background: #1a1a1a;
-    border-radius: 8px;
+    background: #ffffff;
+    border-radius: 12px;
     overflow: hidden;
     transition: all 0.4s;
-    border: 1px solid #252525;
+    border: 1px solid #e3f2fd;
     cursor: pointer;
+    box-shadow: 0 4px 15px rgba(21, 101, 192, 0.08);
 }
 .card:hover { 
     transform: translateY(-8px); 
-    box-shadow: 0 15px 40px rgba(200, 16, 46, 0.3);
-    border-color: #C8102E;
+    box-shadow: 0 15px 40px rgba(21, 101, 192, 0.25);
+    border-color: #42A5F5;
 }
 .card img { width: 100%; height: 280px; object-fit: cover; transition: transform 0.4s; }
 .card:hover img { transform: scale(1.1); }
 .card-body { padding: 20px; }
-.card-body h3 { color: #fff; margin-bottom: 8px; font-size: 1.15em; font-weight: 700; }
-.card-body p { color: #aaa; font-size: 0.95em; }
+.card-body h3 { color: #0D47A1; margin-bottom: 8px; font-size: 1.15em; font-weight: 700; }
+.card-body p { color: #666; font-size: 0.95em; }
 
 /* نافذة عرض الصور */
 .lightbox {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.97);
+    background: rgba(13, 71, 161, 0.97);
     z-index: 9998;
     display: none;
     align-items: center;
@@ -314,15 +344,15 @@ nav .nav-clock {
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .lightbox img {
     max-width: 95%; max-height: 90%;
-    border: 4px solid #C8102E;
-    border-radius: 8px;
-    box-shadow: 0 0 60px rgba(200, 16, 46, 0.6);
+    border: 5px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 60px rgba(66, 165, 245, 0.8);
 }
 .lightbox-close {
     position: absolute; top: 20px; left: 20px;
-    color: #fff; font-size: 2.5em;
+    color: #1565C0; font-size: 2.5em;
     cursor: pointer; font-weight: bold;
-    background: rgba(200, 16, 46, 0.8);
+    background: #fff;
     width: 55px; height: 55px;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
@@ -336,40 +366,41 @@ nav .nav-clock {
     margin-bottom: 30px;
 }
 .video-item {
-    background: #1a1a1a;
-    border-radius: 8px;
+    background: #ffffff;
+    border-radius: 12px;
     overflow: hidden;
     transition: all 0.4s;
-    border: 1px solid #252525;
+    border: 1px solid #e3f2fd;
+    box-shadow: 0 4px 15px rgba(21, 101, 192, 0.08);
 }
 .video-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(200, 16, 46, 0.3);
-    border-color: #C8102E;
+    box-shadow: 0 15px 40px rgba(21, 101, 192, 0.25);
+    border-color: #42A5F5;
 }
 .video-frame { width: 100%; height: 220px; background: #000; }
 .video-frame iframe { width: 100%; height: 100%; border: none; display: block; }
 .video-info { padding: 20px; }
-.video-info h3 { color: #fff; margin-bottom: 8px; font-size: 1.1em; font-weight: 700; }
-.video-info p { color: #aaa; font-size: 0.95em; }
+.video-info h3 { color: #0D47A1; margin-bottom: 8px; font-size: 1.1em; font-weight: 700; }
+.video-info p { color: #666; font-size: 0.95em; }
 
 /* زر يوتيوب */
 .youtube-channel-btn { text-align: center; margin-top: 25px; }
 .youtube-channel-btn a {
     display: inline-block;
-    background: #C8102E;
+    background: linear-gradient(135deg, #1565C0, #42A5F5);
     color: white;
     padding: 15px 35px;
-    border-radius: 5px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
     font-size: 1.05em;
     transition: all 0.3s;
-    border: 2px solid #C8102E;
+    box-shadow: 0 8px 20px rgba(21, 101, 192, 0.3);
 }
 .youtube-channel-btn a:hover { 
-    background: transparent; 
-    color: #C8102E;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(21, 101, 192, 0.5);
 }
 
 /* التواصل الاجتماعي */
@@ -381,61 +412,73 @@ nav .nav-clock {
     margin: 0 auto;
 }
 .social-card {
-    background: #1a1a1a;
-    border-radius: 8px;
+    background: #ffffff;
+    border-radius: 12px;
     padding: 30px 20px;
     text-align: center;
     text-decoration: none;
-    color: #fff;
-    border: 2px solid #252525;
+    color: #0D47A1;
+    border: 2px solid #e3f2fd;
     transition: all 0.4s;
+    box-shadow: 0 4px 15px rgba(21, 101, 192, 0.08);
 }
-.social-card:hover { transform: translateY(-8px); border-color: #C8102E; background: #252525; }
+.social-card:hover { 
+    transform: translateY(-8px); 
+    border-color: #42A5F5; 
+    background: #e3f2fd;
+    box-shadow: 0 15px 40px rgba(21, 101, 192, 0.2);
+}
 .social-card .icon { font-size: 2.8em; margin-bottom: 12px; display: block; transition: all 0.3s; }
-.social-card .name { font-size: 1.2em; font-weight: bold; margin-bottom: 5px; color: #fff; }
-.social-card .handle { font-size: 0.85em; color: #888; }
+.social-card .name { font-size: 1.2em; font-weight: bold; margin-bottom: 5px; color: #0D47A1; }
+.social-card .handle { font-size: 0.85em; color: #666; }
 .social-card:hover .icon { transform: scale(1.2); }
 
 /* الأخبار */
 .news-item {
-    background: #1a1a1a;
+    background: #ffffff;
     padding: 20px 25px;
-    border-right: 5px solid #C8102E;
-    border-radius: 5px;
+    border-right: 5px solid #1565C0;
+    border-radius: 8px;
     margin-bottom: 15px;
     transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(21, 101, 192, 0.08);
 }
-.news-item:hover { background: #252525; transform: translateX(-5px); }
-.news-item h3 { color: #fff; margin-bottom: 8px; font-size: 1.2em; font-weight: 700; }
-.news-item .date { color: #C8102E; font-size: 0.85em; font-weight: bold; display: block; margin-bottom: 8px; }
-.news-item p { color: #bbb; }
+.news-item:hover { 
+    background: #e3f2fd; 
+    transform: translateX(-5px); 
+}
+.news-item h3 { color: #0D47A1; margin-bottom: 8px; font-size: 1.2em; font-weight: 700; }
+.news-item .date { color: #1565C0; font-size: 0.85em; font-weight: bold; display: block; margin-bottom: 8px; }
+.news-item p { color: #555; }
 
 /* التذييل */
 footer {
-    background: #000;
-    color: #ccc;
+    background: linear-gradient(135deg, #0D47A1, #1565C0);
+    color: #e3f2fd;
     text-align: center;
     padding: 50px 20px 30px;
     margin-top: 50px;
-    border-top: 4px solid #C8102E;
+    border-top: 5px solid #42A5F5;
+    transition: background 0.4s;
 }
 footer .footer-brand { font-size: 1.8em; margin-bottom: 15px; color: #fff; font-weight: 800; }
 footer .footer-engineer {
     font-size: 1.05em;
-    color: #ccc;
+    color: #e3f2fd;
     margin: 20px 0;
     padding: 20px;
-    background: #1a1a1a;
-    border-radius: 8px;
-    border: 1px solid #252525;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     display: inline-block;
     max-width: 500px;
+    backdrop-filter: blur(10px);
 }
-footer .footer-engineer strong { color: #C8102E; }
+footer .footer-engineer strong { color: #fff; }
 footer .contact-line { margin: 8px 0; font-size: 0.95em; }
-footer .contact-line a { color: #C8102E; text-decoration: none; font-weight: bold; }
-footer .copyright { font-size: 0.85em; color: #666; margin-top: 20px; }
-footer .heart { color: #C8102E; }
+footer .contact-line a { color: #64B5F6; text-decoration: none; font-weight: bold; }
+footer .copyright { font-size: 0.85em; color: #90CAF9; margin-top: 20px; }
+footer .heart { color: #FF6B6B; }
 
 /* زر واتساب عائم */
 .whatsapp-float {
@@ -460,12 +503,13 @@ footer .heart { color: #C8102E; }
 /* زر العودة للأعلى */
 .back-to-top {
     position: fixed; bottom: 25px; right: 25px;
-    background: #C8102E; color: #fff;
+    background: linear-gradient(135deg, #1565C0, #42A5F5);
+    color: #fff;
     width: 55px; height: 55px;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-size: 1.5em;
-    box-shadow: 0 5px 20px rgba(200, 16, 46, 0.5);
+    box-shadow: 0 5px 20px rgba(21, 101, 192, 0.5);
     z-index: 999;
     text-decoration: none;
     transition: all 0.4s;
@@ -481,25 +525,70 @@ footer .heart { color: #C8102E; }
 .share-btn {
     display: inline-block;
     margin: 25px auto 0;
-    background: #C8102E;
+    background: linear-gradient(135deg, #1565C0, #42A5F5);
     color: #fff;
-    padding: 12px 30px;
-    border-radius: 5px;
+    padding: 14px 35px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
-    border: 2px solid #C8102E;
+    border: none;
     transition: all 0.3s;
     font-size: 1em;
+    box-shadow: 0 8px 20px rgba(21, 101, 192, 0.3);
 }
-.share-btn:hover { background: transparent; color: #C8102E; }
+.share-btn:hover { 
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(21, 101, 192, 0.5);
+}
 .share-container { text-align: center; margin-top: 20px; }
+
+/* ===== الوضع الداكن ===== */
+body.dark-mode { background-color: #0d1117; color: #e6edf3; }
+body.dark-mode .top-bar { background: #161b22; border-bottom-color: #30363d; }
+body.dark-mode .top-bar-date { color: #8b949e; }
+body.dark-mode .top-bar-social a { color: #58a6ff; }
+body.dark-mode nav { background: #161b22; border-bottom-color: #1565C0; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); }
+body.dark-mode nav a { color: #58a6ff; }
+body.dark-mode nav a:hover { background: #21262d; color: #79c0ff; }
+body.dark-mode nav .nav-clock { color: #58a6ff; border-right-color: #30363d; }
+body.dark-mode .section-title { color: #79c0ff; }
+body.dark-mode .engineer-bar { background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.08), transparent); color: #58a6ff; border-top-color: #30363d; border-bottom-color: #30363d; }
+body.dark-mode .urgent-news,
+body.dark-mode .news-card,
+body.dark-mode .card,
+body.dark-mode .video-item,
+body.dark-mode .news-item,
+body.dark-mode .social-card { background: #161b22; border-color: #30363d; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); }
+body.dark-mode .urgent-news:hover,
+body.dark-mode .news-card:hover,
+body.dark-mode .card:hover,
+body.dark-mode .video-item:hover,
+body.dark-mode .news-item:hover,
+body.dark-mode .social-card:hover { background: #21262d; border-color: #58a6ff; box-shadow: 0 15px 40px rgba(88, 166, 255, 0.25); }
+body.dark-mode .urgent-news h3,
+body.dark-mode .news-card-body h3,
+body.dark-mode .card-body h3,
+body.dark-mode .video-info h3,
+body.dark-mode .news-item h3,
+body.dark-mode .social-card .name { color: #79c0ff; }
+body.dark-mode .urgent-news p,
+body.dark-mode .news-card-body p,
+body.dark-mode .card-body p,
+body.dark-mode .video-info p,
+body.dark-mode .news-item p { color: #8b949e; }
+body.dark-mode .social-card .handle { color: #8b949e; }
+body.dark-mode footer { background: linear-gradient(135deg, #000000, #0d1117); border-top-color: #1565C0; }
+body.dark-mode .footer-engineer { background: rgba(88, 166, 255, 0.08); border-color: rgba(88, 166, 255, 0.2); }
+body.dark-mode .theme-toggle { background: linear-gradient(135deg, #f39c12, #f1c40f); color: #000; }
+body.dark-mode #home p { color: #8b949e !important; }
 
 /* للجوال */
 @media (max-width: 768px) {
     header h1 { font-size: 2em; }
-    nav a { padding: 14px 12px; font-size: 0.9em; }
-    nav .nav-clock { padding: 14px 10px; font-size: 0.8em; }
+    nav a { padding: 14px 10px; font-size: 0.85em; }
+    nav .nav-clock { padding: 14px 8px; font-size: 0.75em; }
+    .theme-toggle { width: 36px; height: 36px; font-size: 1em; margin: 8px 5px; }
     .section-title { font-size: 1.7em; }
     .videos-grid { grid-template-columns: 1fr; }
     .video-frame { height: 200px; }
@@ -526,7 +615,7 @@ footer .heart { color: #C8102E; }
 
 <!-- شريط الأخبار العاجلة -->
 <div class="breaking-bar">
-    <span class="breaking-label">🔴 عاجل</span>
+    <span class="breaking-label">📢 عاجل</span>
     <span class="breaking-content">
         آخر المستجدات: موقع بلاد الصدارة التاريخية يطلق نسخته الجديدة ✦ تابعونا لكل جديد من قلب اليمن السعيد ✦ صور ومقاطع وأخبار حصرية ✦ للتواصل: 782953692 ✦ تصميم: المهندس صلووح المانعي
     </span>
@@ -551,7 +640,7 @@ footer .heart { color: #C8102E; }
 
 <!-- الترويسة -->
 <header>
-    <h1>بلاد <span class="red">الصدارة</span> التاريخية</h1>
+    <h1>بلاد <span class="blue">الصدارة</span> التاريخية</h1>
     <p>📡 صور، مقاطع، وأخبار من قلب اليمن السعيد</p>
     <div class="engineer-credit">✨ تصميم وتطوير: المهندس صلووح المانعي ✨</div>
 </header>
@@ -564,14 +653,15 @@ footer .heart { color: #C8102E; }
     <a href="#photos" class="nav-link">الصور</a>
     <a href="#videos" class="nav-link">الفيديوهات</a>
     <a href="#contact" class="nav-link">تواصل</a>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="تبديل الوضع الداكن/الفاتح">🌙</button>
     <span class="nav-clock" id="navClock">🕐</span>
 </nav>
 
 <!-- الرئيسية -->
 <div class="container reveal" id="home">
     <h2 class="section-title">📡 مرحباً بكم</h2>
-    <p style="text-align:center; font-size:1.1em; color:#bbb; max-width:800px; margin:20px auto;">
-        موقع إخباري شامل يغطي آخر المستجدات والأخبار عن <strong style="color:#C8102E;">بلاد الصدارة التاريخية</strong>.
+    <p style="text-align:center; font-size:1.1em; color:#555; max-width:800px; margin:20px auto;">
+        موقع إخباري شامل يغطي آخر المستجدات والأخبار عن <strong style="color:#1565C0;">بلاد الصدارة التاريخية</strong>.
         نوثق جمال اليمن وتاريخه بأحدث الصور والفيديوهات.
     </p>
     <div class="share-container">
@@ -588,21 +678,21 @@ footer .heart { color: #C8102E; }
     <h2 class="section-title">🔴 أخبار عاجلة</h2>
     
     <div class="urgent-news">
-        <span class="urgent-tag">🔴 عاجل</span>
+        <span class="urgent-tag">📢 عاجل</span>
         <h3>افتتاح معرض الصور اليمنية الكبير</h3>
         <span class="date">📅 <span class="auto-date"></span></span>
         <p>أعلنت الجهات المختصة عن افتتاح معرض شامل للصور التاريخية والطبيعية لليمن، يضم أكثر من 100 صورة نادرة من مختلف المحافظات.</p>
     </div>
     
     <div class="urgent-news">
-        <span class="urgent-tag">🔴 عاجل</span>
+        <span class="urgent-tag">📢 عاجل</span>
         <h3>مبادرات جديدة للحفاظ على التراث اليمني</h3>
         <span class="date">📅 أمس</span>
         <p>انطلاق مبادرات وطنية تهدف إلى توثيق وحماية المعالم التاريخية في مختلف المحافظات اليمنية.</p>
     </div>
     
     <div class="urgent-news">
-        <span class="urgent-tag">🔴 عاجل</span>
+        <span class="urgent-tag">📢 عاجل</span>
         <h3>اليمن السعيد وجهة سياحية مميزة</h3>
         <span class="date">📅 هذا الأسبوع</span>
         <p>تشهد المناطق الطبيعية في اليمن اهتماماً متزايداً من السياح الباحثين عن الجمال الأصيل والطبيعة الخلابة.</p>
@@ -698,7 +788,7 @@ footer .heart { color: #C8102E; }
             </div>
         </div>
     </div>
-    <p style="text-align:center; margin-top:25px; color:#888; font-size:0.9em;">
+    <p style="text-align:center; margin-top:25px; color:#666; font-size:0.9em;">
         💡 اضغط على أي صورة لعرضها بالحجم الكامل
     </p>
 </div>
@@ -793,14 +883,14 @@ footer .heart { color: #C8102E; }
 
 <footer>
     <div class="footer-brand">📡 بلاد الصدارة التاريخية</div>
-    <p style="color:#888;">موقع إخباري شامل - صور، مقاطع، وأخبار</p>
+    <p style="color:#90CAF9;">موقع إخباري شامل - صور، مقاطع، وأخبار</p>
     
     <div class="footer-engineer">
         👨‍💻 صُنع بواسطة <strong>المهندس صلووح المانعي</strong><br>
-        <span style="font-size:0.85em; opacity:0.9; color:#888;">لتصميم الشبكات والمواقع الإلكترونية</span>
+        <span style="font-size:0.85em; opacity:0.9;">لتصميم الشبكات والمواقع الإلكترونية</span>
         <div class="contact-line">📞 <strong>للتواصل:</strong> <a href="tel:782953692">782953692</a></div>
         <div class="contact-line">💬 <strong>واتساب:</strong> <a href="https://wa.me/967782953692" target="_blank">اضغط للمحادثة</a></div>
-        <div class="contact-line">🌍 <strong>الدولة:</strong> <span style="color:#C8102E;">اليمن 🇾🇪</span></div>
+        <div class="contact-line">🌍 <strong>الدولة:</strong> <span style="color:#fff;">اليمن 🇾🇪</span></div>
     </div>
     
     <p class="copyright">© 2025 بلاد الصدارة التاريخية - جميع الحقوق محفوظة</p>
@@ -816,6 +906,31 @@ window.addEventListener('load', function() {
     setTimeout(function() {
         document.getElementById('loader').classList.add('hidden');
     }, 800);
+});
+
+// تبديل الثيم
+function toggleTheme() {
+    var body = document.body;
+    var btn = document.getElementById('themeToggle');
+    body.classList.toggle('dark-mode');
+    
+    if (body.classList.contains('dark-mode')) {
+        btn.innerHTML = '☀️';
+        localStorage.setItem('theme', 'dark');
+    } else {
+        btn.innerHTML = '🌙';
+        localStorage.setItem('theme', 'light');
+    }
+}
+
+// استرجاع الثيم المحفوظ
+window.addEventListener('DOMContentLoaded', function() {
+    var savedTheme = localStorage.getItem('theme');
+    var btn = document.getElementById('themeToggle');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        if (btn) btn.innerHTML = '☀️';
+    }
 });
 
 // التاريخ والساعة
@@ -911,4 +1026,4 @@ window.addEventListener('scroll', function() {
 </script>
 
 </body>
-</html>
+    </html>
