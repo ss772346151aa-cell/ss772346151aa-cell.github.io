@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="المهندس صلووح المانعي">
-<meta name="description" content="بلاد الصدارة التاريخية - موقع إخباري شامل: أخبار عاجلة، صور، فيديوهات من قلب اليمن السعيد. صنع بواسطة المهندس صلووح المانعي. للتواصل: 782953692">
+<meta name="description" content="بلاد الصدارة التاريخية - موقع إخباري شامل: أخبار عاجلة مباشرة، صور، فيديوهات من قلب اليمن السعيد. صنع بواسطة المهندس صلووح المانعي. للتواصل: 782953692">
 <meta name="theme-color" content="#1565C0">
 <title>بلاد الصدارة التاريخية | آخر الأخبار والمستجدات</title>
 <link rel="stylesheet" href="style.css">
@@ -102,45 +102,32 @@
     <div class="share-container">
         <button class="share-btn" onclick="shareWebsite()">📤 شارك الموقع مع أصدقائك</button>
     </div>
-    <!-- شريط الأدوات السريع -->
-<div class="quick-tools">
-    <div class="tool-card" onclick="toggleQuran()">
-        <span class="tool-icon" id="quranIcon">🎵</span>
-        <span class="tool-label">القرآن الكريم</span>
-    </div>
-    <div class="tool-card" onclick="showPrayerTimes()">
-        <span class="tool-icon">🕌</span>
-        <span class="tool-label">أوقات الصلاة</span>
-    </div>
-    <div class="tool-card" onclick="showDailyQuote()">
-        <span class="tool-icon">🌟</span>
-        <span class="tool-label">حكمة اليوم</span>
-    </div>
-    <div class="tool-card" onclick="scrollToSection('videos')">
-        <span class="tool-icon">🎬</span>
-        <span class="tool-label">شاهد الفيديوهات</span>
-    </div>
-</div>
 
-<!-- شارات الموقع -->
-<div class="badges-section">
-    <div class="badge-item">
-        <span class="badge-icon">✅</span>
-        <span>محتوى موثوق</span>
+    <div class="quick-tools">
+        <div class="tool-card" onclick="toggleQuran()">
+            <span class="tool-icon" id="quranIcon">🎵</span>
+            <span class="tool-label">القرآن الكريم</span>
+        </div>
+        <div class="tool-card" onclick="showPrayerTimes()">
+            <span class="tool-icon">🕌</span>
+            <span class="tool-label">أوقات الصلاة</span>
+        </div>
+        <div class="tool-card" onclick="showDailyQuote()">
+            <span class="tool-icon">🌟</span>
+            <span class="tool-label">حكمة اليوم</span>
+        </div>
+        <div class="tool-card" onclick="scrollToSection('videos')">
+            <span class="tool-icon">🎬</span>
+            <span class="tool-label">شاهد الفيديوهات</span>
+        </div>
     </div>
-    <div class="badge-item">
-        <span class="badge-icon">🏆</span>
-        <span>موقع مميز</span>
+
+    <div class="badges-section">
+        <div class="badge-item"><span class="badge-icon">✅</span><span>محتوى موثوق</span></div>
+        <div class="badge-item"><span class="badge-icon">🏆</span><span>موقع مميز</span></div>
+        <div class="badge-item"><span class="badge-icon">🇾🇪</span><span>يمني أصيل</span></div>
+        <div class="badge-item"><span class="badge-icon">⚡</span><span>تحديث مباشر</span></div>
     </div>
-    <div class="badge-item">
-        <span class="badge-icon">🇾🇪</span>
-        <span>يمني أصيل</span>
-    </div>
-    <div class="badge-item">
-        <span class="badge-icon">⚡</span>
-        <span>تحديث مباشر</span>
-    </div>
-</div>
 </div>
 
 <div class="engineer-bar">
@@ -166,10 +153,11 @@
             <span class="stat-label">خبر</span>
         </div>
         <div class="stat-item">
-    <span class="stat-icon">👥</span>
-    <span class="stat-number" id="visitorCount">0</span>
-    <span class="stat-label">زائر</span>
-</div>
+            <span class="stat-icon">👥</span>
+            <span class="stat-number" id="visitorCount">0</span>
+            <span class="stat-label">زائر</span>
+        </div>
+    </div>
 </div>
 
 <!-- الأخبار العاجلة -->
@@ -202,51 +190,31 @@
     ◆ تغطية إخبارية من <strong>المهندس صلووح المانعي</strong> ◆
 </div>
 
-<!-- الأخبار -->
+<!-- الأخبار المباشرة من وكالة سبأ -->
 <div class="container reveal" id="news">
-    <h2 class="section-title">📰 آخر الأخبار</h2>
-    <div class="news-grid">
-        
-        <div class="news-card">
-            <img src="photo1.jpg" alt="خبر 1" loading="lazy">
-            <div class="news-card-body">
-                <span class="category">محلي</span>
-                <h3>جولة مصورة في منطقة الصدارة بمديرية حجر</h3>
-                <span class="date">📅 <span class="auto-date"></span></span>
-                <p>تقرير مصور يستعرض جمال منطقة الصدارة التاريخية في مديرية حجر.</p>
-            </div>
+    <h2 class="section-title">📰 آخر الأخبار اليمنية</h2>
+    
+    <div class="news-header-bar">
+        <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span>مباشر من اليمن</span>
         </div>
-        
-        <div class="news-card">
-            <img src="photo2.jpg" alt="خبر 2" loading="lazy">
-            <div class="news-card-body">
-                <span class="category">تراث</span>
-                <h3>التراث المعماري اليمني في قلب الصدارة</h3>
-                <span class="date">📅 أمس</span>
-                <p>لمحة عن الطراز المعماري الفريد الذي تشتهر به بلاد الصدارة التاريخية.</p>
-            </div>
+        <div class="news-controls">
+            <button class="news-nav-btn" id="prevNews" onclick="prevNews()">◀ السابق</button>
+            <span class="news-counter" id="newsCounter">1 / 6</span>
+            <button class="news-nav-btn" id="nextNews" onclick="nextNews()">التالي ▶</button>
         </div>
-        
-        <div class="news-card">
-            <img src="photo3.jpg" alt="خبر 3" loading="lazy">
-            <div class="news-card-body">
-                <span class="category">طبيعة</span>
-                <h3>جمال الطبيعة في ربوع بلاد الصدارة</h3>
-                <span class="date">📅 هذا الأسبوع</span>
-                <p>صور خلابة تجسد سحر الطبيعة اليمنية في مواسم الأمطار والخضرة.</p>
-            </div>
+    </div>
+
+    <div class="live-news-container" id="liveNewsContainer">
+        <div class="news-loading">
+            <div class="loading-spinner"></div>
+            <p>جاري تحميل الأخبار من وكالة سبأ اليمنية...</p>
         </div>
-        
-        <div class="news-card">
-            <img src="photo4.jpg" alt="خبر 4" loading="lazy">
-            <div class="news-card-body">
-                <span class="category">تاريخ</span>
-                <h3>معالم تاريخية تحكي قصة حضارة عريقة</h3>
-                <span class="date">📅 الأسبوع الماضي</span>
-                <p>جولة في أبرز المعالم التاريخية والأثرية في بلاد الصدارة.</p>
-            </div>
-        </div>
-        
+    </div>
+
+    <div class="news-source-credit">
+        📡 المصدر: وكالة الأنباء اليمنية سبأ <a href="https://www.saba.ye" target="_blank">saba.ye</a>
     </div>
 </div>
 
@@ -415,18 +383,8 @@
 
 <a href="https://wa.me/967782953692" class="whatsapp-float" target="_blank" title="تواصل عبر واتساب">💬</a>
 <div class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</div>
-    <!-- نافذة الترحيب -->
-<div class="welcome-popup" id="welcomePopup">
-    <div class="welcome-box">
-        <span class="welcome-icon">🏛️</span>
-        <h2>مرحباً بك!</h2>
-        <p>أهلاً وسهلاً بك في موقع <strong>بلاد الصدارة التاريخية</strong><br>
-        نتمنى لك تجربة ممتعة في استكشاف جمال وتاريخ اليمن السعيد.</p>
-        <button class="welcome-close" onclick="closeWelcome()">🚀 ابدأ التصفح</button>
-    </div>
-</div>
 
-  <!-- نافذة أوقات الصلاة -->
+<!-- نافذة أوقات الصلاة -->
 <div class="popup-modal" id="prayerPopup">
     <div class="popup-content">
         <span class="popup-close" onclick="closePopup('prayerPopup')">×</span>
@@ -454,6 +412,7 @@
 <audio id="quranPlayer" loop>
     <source src="https://server8.mp3quran.net/afs/001.mp3" type="audio/mpeg">
 </audio>
+
 <script src="script.js"></script>
 
 </body>
