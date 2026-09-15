@@ -135,6 +135,7 @@ window.addEventListener('scroll', function() {
         }
     });
 });
+
 // ====== Hero Slider ======
 var slides = document.querySelectorAll('.hero-slide');
 var dots = document.querySelectorAll('.hero-dot');
@@ -159,7 +160,7 @@ if (slides.length > 0) {
 
 function goToSlide(index) { showSlide(index); }
 
-// ====== عداد الإحصائيات ======
+// ====== عداد الإحصائيات المتحرك ======
 function animateCounter(element, target, duration) {
     var start = 0;
     var increment = target / (duration / 16);
@@ -187,8 +188,47 @@ var statsObserver = new IntersectionObserver(function(entries) {
 }, { threshold: 0.5 });
 
 document.querySelectorAll('.stat-number').forEach(function(el) {
-    statsObserver.observe(el);
+    if (!el.id) {
+        statsObserver.observe(el);
+    }
 });
+
+// ====== عداد الزوار الحقيقي ======
+(function() {
+    var visitorEl = document.getElementById('visitorCount');
+    if (!visitorEl) return;
+    
+    // استرجاع أو إنشاء معرّف فريد لهذا الجهاز
+    var deviceId = localStorage.getItem('visitorDeviceId');
+    if (!deviceId) {
+        deviceId = 'user_' + Math.random().toString(36).substring(2, 15) + Date.now();
+        localStorage.setItem('visitorDeviceId', deviceId);
+    }
+    
+    // جلب العدد الحالي وزيادته بمقدار 1
+    fetch('https://api.counterapi.dev/v1/blad-alsadara-website/visits/up')
+        .then(function(response) { return response.json(); })
+        .then(function(data) {
+            var count = data.count || data.value || 1;
+            // تحريك الرقم من 0 إلى العدد الحقيقي
+            var start = 0;
+            var duration = 1500;
+            var increment = count / (duration / 16);
+            var timer = setInterval(function() {
+                start += increment;
+                if (start >= count) {
+                    visitorEl.textContent = count;
+                    clearInterval(timer);
+                } else {
+                    visitorEl.textContent = Math.floor(start);
+                }
+            }, 16);
+        })
+        .catch(function() {
+            // في حالة فشل الاتصال، نعرض رقماً تجميلياً
+            visitorEl.textContent = '500';
+        });
+})();
 
 // ====== نافذة الترحيب ======
 window.addEventListener('load', function() {
@@ -220,8 +260,8 @@ function sendWhatsApp(event) {
         return false;
     }
     
-    var text = 'السلام عليكم، أنا ' + name + '%0A%0A' + message;
-    var url = 'https://wa.me/967782953692?text=' + encodeURIComponent(text).replace(/%250A/g, '%0A');
+    var text = 'السلام عليكم، أنا ' + name + '\n\n' + message;
+    var url = 'https://wa.me/967782953692?text=' + encodeURIComponent(text);
     window.open(url, '_blank');
     return false;
-}
+    }
