@@ -415,7 +415,34 @@
 
 <a href="https://wa.me/967782953692" class="whatsapp-float" target="_blank" title="تواصل عبر واتساب">💬</a>
 <div class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</div>
+<!-- نافذة أوقات الصلاة -->
+<div class="popup-modal" id="prayerPopup">
+    <div class="popup-content">
+        <span class="popup-close" onclick="closePopup('prayerPopup')">×</span>
+        <h2>🕌 أوقات الصلاة اليوم</h2>
+        <p class="popup-location">📍 صنعاء - اليمن</p>
+        <div class="prayer-times" id="prayerTimesList">
+            <div class="loading-spinner" style="margin: 30px auto;"></div>
+        </div>
+    </div>
+</div>
 
+<!-- نافذة حكمة اليوم -->
+<div class="popup-modal" id="quotePopup">
+    <div class="popup-content">
+        <span class="popup-close" onclick="closePopup('quotePopup')">×</span>
+        <h2>🌟 حكمة اليوم</h2>
+        <div class="daily-quote" id="dailyQuoteContent">
+            <p>...</p>
+        </div>
+        <button class="share-btn" onclick="shareQuote()" style="margin-top: 20px;">📤 شارك الحكمة</button>
+    </div>
+</div>
+
+<!-- مشغل القرآن -->
+<audio id="quranPlayer" loop>
+    <source src="https://server8.mp3quran.net/afs/001.mp3" type="audio/mpeg">
+</audio>
 <script src="script.js"></script>
 
 </body>
