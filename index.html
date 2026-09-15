@@ -47,11 +47,37 @@
     <img id="lightboxImg" src="" alt="عرض الصورة">
 </div>
 
-<!-- الترويسة -->
+<!-- نافذة الترحيب -->
+<div class="welcome-popup" id="welcomePopup">
+    <div class="welcome-box">
+        <span class="welcome-icon">🏛️</span>
+        <h2>مرحباً بك!</h2>
+        <p>أهلاً وسهلاً بك في موقع <strong>بلاد الصدارة التاريخية</strong><br>
+        نتمنى لك تجربة ممتعة في استكشاف جمال وتاريخ اليمن السعيد.</p>
+        <button class="welcome-close" onclick="closeWelcome()">🚀 ابدأ التصفح</button>
+    </div>
+</div>
+
+<!-- الترويسة مع Hero Slider -->
 <header>
-    <h1>بلاد <span class="blue">الصدارة</span> التاريخية</h1>
-    <p>📡 صور، مقاطع، وأخبار من قلب اليمن السعيد</p>
-    <div class="engineer-credit">✨ تصميم وتطوير: المهندس صلووح المانعي ✨</div>
+    <div class="hero-slider">
+        <div class="hero-slide active" style="background-image: url('photo1.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('photo2.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('photo3.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('photo4.jpg');"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="header-content">
+        <h1>بلاد <span class="blue">الصدارة</span> التاريخية</h1>
+        <p>📡 صور، مقاطع، وأخبار من قلب اليمن السعيد</p>
+        <div class="engineer-credit">✨ تصميم وتطوير: المهندس صلووح المانعي ✨</div>
+    </div>
+    <div class="hero-dots">
+        <span class="hero-dot active" onclick="goToSlide(0)"></span>
+        <span class="hero-dot" onclick="goToSlide(1)"></span>
+        <span class="hero-dot" onclick="goToSlide(2)"></span>
+        <span class="hero-dot" onclick="goToSlide(3)"></span>
+    </div>
 </header>
 
 <!-- شريط التنقل -->
@@ -80,6 +106,32 @@
 
 <div class="engineer-bar">
     ◆ موقع إخباري من تطوير <strong>المهندس صلووح المانعي للشبكات والمواقع</strong> ◆
+</div>
+
+<!-- قسم الإحصائيات -->
+<div class="stats-section">
+    <div class="stats-grid">
+        <div class="stat-item">
+            <span class="stat-icon">📸</span>
+            <span class="stat-number" data-target="150">0</span>
+            <span class="stat-label">صورة</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-icon">🎬</span>
+            <span class="stat-number" data-target="25">0</span>
+            <span class="stat-label">فيديو</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-icon">📰</span>
+            <span class="stat-number" data-target="80">0</span>
+            <span class="stat-label">خبر</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-icon">👥</span>
+            <span class="stat-number" data-target="5000">0</span>
+            <span class="stat-label">زائر</span>
+        </div>
+    </div>
 </div>
 
 <!-- الأخبار العاجلة -->
@@ -266,7 +318,24 @@
 <div class="container reveal" id="contact">
     <h2 class="section-title">📱 تابعنا وتواصل معنا</h2>
     
-    <div class="social-grid">
+    <div class="contact-form">
+        <h3>✉️ أرسل لنا رسالة</h3>
+        <form onsubmit="sendWhatsApp(event)">
+            <div class="form-group">
+                <label>اسمك الكريم</label>
+                <input type="text" id="formName" placeholder="اكتب اسمك هنا..." required>
+            </div>
+            <div class="form-group">
+                <label>رسالتك</label>
+                <textarea id="formMessage" placeholder="اكتب رسالتك هنا..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit">
+                💬 إرسال عبر واتساب
+            </button>
+        </form>
+    </div>
+    
+    <div class="social-grid" style="margin-top:40px;">
         <a href="https://youtube.com/@sloohy" target="_blank" class="social-card">
             <span class="icon">▶️</span>
             <div class="name">يوتيوب</div>
